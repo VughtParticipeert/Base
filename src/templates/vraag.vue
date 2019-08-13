@@ -1,9 +1,9 @@
 <template>
-    <section>
-        <h2>{{title}}</h2>
-        <img :src="image" alt="">
-        <span>{{date}}</span>
-        <p>{{content}}</p>
+    <section class="card">
+        <h2 class="title">{{title}}</h2>
+        <img class="image" :src="image" alt="">
+        <span class="date">{{date}}</span>
+        <p class="content">{{content}}</p>
     </section>
 </template>
 
@@ -20,5 +20,21 @@ export default {
 </script>
 
 <style>
+.card {
+    margin-bottom: 2rem;
+}
 
+.image {
+    height: 4rem;
+    width: 4rem;
+    object-fit: contain;
+}
+
+.date {
+    display: block;
+}
+
+.content {
+    display: block;
+}
 </style>

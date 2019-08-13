@@ -1,8 +1,9 @@
 <template>
   <Layout>
     
-    <section v-for="vraag in $page.vragen.edges" :key="vraag.id">
+    <section class="vragen-container">
       <vraag
+        v-for="vraag in $page.vragen.edges" :key="vraag.id"
         :title="vraag.node.title"
         :image="vraag.node.featuredImage"
         :date="vraag.node.date"
@@ -43,6 +44,16 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+}
+
 .home-links a {
   margin-right: 1rem;
 }
