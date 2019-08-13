@@ -3,7 +3,7 @@
         <h2 class="title">{{title}}</h2>
         <img class="image" :src="image" alt="">
         <span class="date">{{date}}</span>
-        <p class="content">{{content}}</p>
+        <p v-html="content" class="content"></p>
     </section>
 </template>
 
@@ -22,11 +22,12 @@ export default {
 <style>
 .card {
     margin-bottom: 2rem;
+    padding: 2rem;
 }
 
 .image {
-    height: 4rem;
-    width: 4rem;
+    height: 7rem;
+    width: 7rem;
     object-fit: contain;
 }
 
