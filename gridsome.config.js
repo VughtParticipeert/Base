@@ -18,8 +18,21 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'content/**/*.md',
-        typeName: 'Content',
-        remark: {}
+        typeName: 'Content'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/*.md',
+        typeName: 'Post'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Logo/*.md',
+        typeName: 'Logo'
       }
     }
   ]
