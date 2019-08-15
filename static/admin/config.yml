@@ -29,7 +29,7 @@ collections:
       - {label: "Featured Image", name: "featuredImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - {label: "Tags", name: "tags", widget: "list", default: ["news"]}
+      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["Test Tag"], field: {label: menuItem, name: Menu Item, widget: string}}
       - {label: "Align Content", name: "align", widget: "select", options: ["left", "center", "right"]}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
