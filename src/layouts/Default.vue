@@ -1,13 +1,14 @@
 <template>
   <div class="layout">
     <header class="header">
-      <strong>
+      <Navigation/>
+      <!-- <strong>
         <g-link to="/">{{ $static.metaData.siteName }}</g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
         <g-link class="nav__link" to="/about">About</g-link>
-      </nav>
+      </nav> -->
     </header>
     <slot/>
   </div>
@@ -21,14 +22,17 @@ query {
 }
 </static-query>
 
-<style>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+<script>
+import Navigation from '~/components/Navigation.vue'
+
+export default {
+  components: {
+    Navigation
+  }
 }
+</script>
+
+<style scoped lang="scss">
 
 .nav__link {
   margin-left: 20px;
