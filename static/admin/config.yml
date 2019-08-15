@@ -14,7 +14,7 @@ collections:
     folder: "content/logo"
     slug: "{{slug}}"
     create: true
-    description: "Ensure that there is only one item in this catagory"
+    description: "Ensure that there is only one item in this category."
     fields: 
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
