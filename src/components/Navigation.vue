@@ -27,7 +27,7 @@
 
 <--A static-query will be scoped to this component only--> 
 <static-query >
-    query{
+    query Logo{
         logo: allLogo {
             edges {
                 data: node {
