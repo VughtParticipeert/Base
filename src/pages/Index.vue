@@ -27,7 +27,7 @@
       }
     }
 
-    logo: allLogo {
+    allLogo {
       edges {
         node {
           title
