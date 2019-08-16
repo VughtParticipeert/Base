@@ -40,8 +40,9 @@
                     title: data.title,
                     logoUrl: data.logo
                 }
-
-                return logoData
+                if(logoData){
+                    return logoData
+                }
             },
             menuItems() {
                 const menuItems = this.$page.allMenuItem.edges
