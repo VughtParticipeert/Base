@@ -1,18 +1,18 @@
 <template>
     <nav class="navigation">
-        <section class="logo-container">
+        <!-- <section class="logo-container">
             <a href="#">
                 <img class="logo" :src="logoData.logoUrl" 
                   :title="logoData.title"
                   :alt="logoData.title"
                 >
             </a>
-        </section>
+        </section> -->
 
         <section :class="{active: menuActive}" class="menu-item-container">
             <ul class="menu">
-                <li v-for="item in menuItem" :key="item.id" class="menu-item">
-                    <a href="#">{{item.name}}</a>
+                <li v-for="item in menuItems" :key="item.node.id" class="menu-item">
+                    <a href="#">{{item.node.menu_item}}</a>
                 </li>
             </ul>
         </section>
@@ -59,6 +59,10 @@
                 }
 
                 return logoData
+            },
+            menuItems() {
+                const menuItems = this.$page.allMenuItem.edges
+                return menuItems
             }
         },
         methods: {

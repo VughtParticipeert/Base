@@ -26,6 +26,15 @@
         }
       }
     }
+
+  allMenuItem: allMenu(order: ASC) {
+    edges {
+      node {
+        menu_item
+        id
+      }
+    }
+  }
   }
 </page-query>
 

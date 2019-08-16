@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header class="header">
-      <!-- <Navigation/> -->
+      <Navigation/>
       <!-- <strong>
         <g-link to="/">{{ $static.metaData.siteName }}</g-link>
       </strong>
