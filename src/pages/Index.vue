@@ -26,15 +26,6 @@
         }
       }
     }
-
-    allLogo {
-      edges {
-        node {
-          title
-          logoUrl: logo
-        }
-      }
-    }
   }
 </page-query>
 
