@@ -27,6 +27,7 @@ collections:
     folder: "content/Menu-item" # Location where the file will be saved
     slug: "{{slug}}"
     create: true # allows users to create new items in the collection
+    identifier_field: name
     description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "menu-item", label: "Menu item", widget: "list", allow_add: true, field: {label: Item, name: item, widget: string}}
