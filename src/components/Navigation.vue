@@ -2,9 +2,9 @@
     <nav class="navigation">
         <section class="logo-container">
             <a href="#">
-                <img class="logo" :src="$static.logo.edges[0].data.logoUrl" 
-                  :title="$static.logo.edges[0].data.title"
-                  :alt="$static.logo.edges[0].data.title"
+                <img class="logo" :src="logoData.logoUrl" 
+                  :title="logoData.title"
+                  :alt="logoData.title"
                 >
             </a>
         </section>
@@ -65,16 +65,15 @@
             };
         },
         computed: {
-          transformQuery() {
+          logoData() { //Transform the GraphQl query to be more readable
+            const data = this.$static.logo.edges[0].data
 
-            console.log($static)
-            // const logo = {
-            //   title: $static.logo.edges[0].title,
-            //   logoUrl: $static.logo.edges[0].logoUrl
-            // }
+            const logo = {
+                title: data.title,
+                logoUrl: data.logoUrl 
+            }
 
-            console.log(logo)
-            return $static
+            return logo
           }
         },
         methods: {
