@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: test-repo
+  name: git-gateway #When testing you can use test-repo
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -20,6 +20,8 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
+
+collections:
   - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
     name: "menu" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Menu" # Location where the file will be saved
