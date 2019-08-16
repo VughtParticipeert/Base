@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway
+  name: test-repo
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -11,8 +11,8 @@ media_folder: "static/uploads" # Media files will be stored in the repo under st
 public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
 
 collections:
-  - name: "logo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
-    label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
+  - label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
+    name: "logo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Logo" # Location where the file will be saved
     slug: "{{slug}}"
     create: true # allows users to create new items in the collection
@@ -20,50 +20,46 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
-
-
-  - name: "menu-items" # (required): unique identifier for the collection, used as the key when referenced in other contexts
-    label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
-    folder: "content/Menu-item" # Location where the file will be saved
+  - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
+    name: "menu" # (required): unique identifier for the collection, used as the key when referenced in other contexts
+    folder: "content/Menu" # Location where the file will be saved
     slug: "{{slug}}"
     create: true # allows users to create new items in the collection
-    identifier_field: name
     description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
-      - {name: "menu-item", label: "Menu item", widget: "list", allow_add: true, field: {label: Item, name: item, widget: string}}
-
+      - {name: "menu-item", label: "Menu item", widget: "list", field: {label: "Item", name: "item", widget: string}}
+  
+  # - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
+  #   title: "test"
+  #   name: "hallo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
+  #   folder: "content/Menu-item" # Location where the file will be saved
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  #   create: true # allows users to create new items in the collection
+  #   description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
+  #   fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
+  #     - {label: "pinda", name: "pinda",  widget: "list", allow_add: true, fields: {label: kaas, name: kaas, widget: string}}
       
       
-  - name: "vragen" # Used in routes, e.g., /admin/collections/blog
-    label: "Vragen" # Used in the UI
-    folder: "content/vragen" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "vragen" # Used in routes, e.g., /admin/collections/blog
+  #   label: "Vragen" # Used in the UI
+  #   folder: "content/vragen" # The path to the folder where the documents are stored
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Publish Date", name: "date", widget: "datetime"}
+  #     - {label: "Featured Image", name: "featuredImage", widget: "image"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
 
 
-  - name: "Post" # Used in routes, e.g., /admin/collections/blog
-    label: "Post" # Used in the UI
-    folder: "content/Post" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    preview_path: post/{{year}}/{{month}}/{{title}}
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "date", format: "DD-MM-YYYY"}
-      - {label: "Manual PDF", name: "manual_pdf", widget: "file", default: "/uploads/general-manual.pdf",media_library:config:multiple: true}
-      - {label: "Start time", name: "start", widget: "datetime", default: "", format: "LLL"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["Test Tag"], field: {label: menuItem, name: Menu Item, widget: string}}
-      - {label: "Align Content", name: "align", widget: "select", options: ["left", "center", "right"]}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
+  # - name: "Post" # Used in routes, e.g., /admin/collections/blog
+  #   label: "Post" # Used in the UI
+  #   folder: "content/Post" # The path to the folder where the documents are stored
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   preview_path: post/{{year}}/{{month}}/{{title}}
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["Test Tag"], field: {label: menuItem, name: Menu Item, widget: string}}
     
 
 
