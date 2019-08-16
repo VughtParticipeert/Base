@@ -13,7 +13,7 @@ public_folder: "/uploads" # The src attribute for uploaded media will begin with
 collections:
   - name: "logo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
-    folder: "content/logo" # Location where the file will be saved
+    folder: "content/Logo" # Location where the file will be saved
     slug: "{{slug}}"
     create: true # allows users to create new items in the collection
     description: "Ensure that there is only one item in this category." # A description that will displayed below the  in the CMs
