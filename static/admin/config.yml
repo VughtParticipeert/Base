@@ -1,3 +1,5 @@
+# Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
+
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
@@ -6,18 +8,20 @@ site_url: https://vught.netlify.com
 display_url: https://vught.netlify.com
 
 media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
-public_folder: "/uploads" # The src attribute for uploaded media will begin with /images/uploads
+public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
 
 collections:
-  - name: "logo"
-    label: "Logo"
-    folder: "content/logo"
+  - name: "logo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
+    label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
+    folder: "content/logo" # Location where the file will be saved
     slug: "{{slug}}"
-    create: true
-    description: "Ensure that there is only one item in this category."
-    fields: 
+    create: true # allows users to create new items in the collection
+    description: "Ensure that there is only one item in this category." # A description that will displayed below the  in the CMs
+    fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
+      
+          
   - name: "vragen" # Used in routes, e.g., /admin/collections/blog
     label: "Vragen" # Used in the UI
     folder: "content/vragen" # The path to the folder where the documents are stored
@@ -28,6 +32,8 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "featuredImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+
   - name: "Post" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
     folder: "content/Post" # The path to the folder where the documents are stored
