@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    
     <section class="vragen-container">
       <vraag
         v-for="vraag in $page.vragen.edges" :key="vraag.id"
@@ -14,7 +13,7 @@
 </template>
 
 <page-query>
-  query Posts {
+  query allData {
     vragen: allContent{
       edges {
         node {
@@ -24,6 +23,15 @@
           date
           content
           featuredImage
+        }
+      }
+    }
+
+    logo: allLogo {
+      edges {
+        data: node {
+          title
+          logoUrl: logo
         }
       }
     }

@@ -25,20 +25,6 @@
     </nav>
 </template>
 
-<--A static-query will be scoped to this component only--> 
-<static-query >
-    query Logo{
-        logo: allLogo {
-            edges {
-                data: node {
-                    title
-                    logoUrl: logo
-                }
-            }
-        }
-    } 
-</static-query>
-
 <script>
     export default {
         name: "Navigation",
@@ -65,16 +51,15 @@
             };
         },
         computed: {
-          logoData() { //Transform the GraphQl query to be more readable
-            const data = this.$static.logo.edges[0].data
+            logoData() {
+                const data = this.$page.logo.edges[0].data
+                const logoData = {
+                    title: data.title,
+                    logoUrl: data.logoUrl
+                }
 
-            const logo = {
-                title: data.title,
-                logoUrl: data.logoUrl 
+                return logoData
             }
-
-            return logo
-          }
         },
         methods: {
             menu() {
