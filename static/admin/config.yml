@@ -20,16 +20,13 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
-
-collections:
   - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
     name: "menu" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Menu" # Location where the file will be saved
     slug: "{{slug}}"
-    create: true # allows users to create new items in the collection
     description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
-      - {name: "menu-item", label: "Menu item", widget: "list", field: {label: "Item", name: "item", widget: string}}
+      - {name: "menu-item", label: "Menu item", widget: "list", create: true, field: {label: "Item", name: "item", widget: string}}
   
   # - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
   #   title: "test"
