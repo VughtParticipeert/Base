@@ -29,7 +29,7 @@
 
     logo: allLogo {
       edges {
-        data: node {
+        node {
           title
           logoUrl: logo
         }

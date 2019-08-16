@@ -52,7 +52,7 @@
         },
         computed: {
             logoData() {
-                const data = this.$page.logo.edges[0].data
+                const data = this.$page.logo.edges[0].node
                 const logoData = {
                     title: data.title,
                     logoUrl: data.logoUrl
