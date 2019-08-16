@@ -35,6 +35,15 @@
       }
     }
   }
+  
+  logo: allLogo {
+    edges {
+      node {
+        title
+        logo
+      }
+    }
+  }
   }
 </page-query>
 

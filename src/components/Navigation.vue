@@ -1,13 +1,13 @@
 <template>
     <nav class="navigation">
-        <!-- <section class="logo-container">
+        <section class="logo-container">
             <a href="#">
-                <img class="logo" :src="logoData.logoUrl" 
-                  :title="logoData.title"
-                  :alt="logoData.title"
+                <img class="logo" :src="logo.logoUrl" 
+                  :title="logo.title"
+                  :alt="logo.title"
                 >
             </a>
-        </section> -->
+        </section>
 
         <section :class="{active: menuActive}" class="menu-item-container">
             <ul class="menu">
@@ -31,10 +31,6 @@
         data() {
             return {
                 menuActive: false,
-                logo: {
-                    url: "http://logosvg.com/wp-content/uploads/Fortnite_Logo.svg",
-                    altsText: "Logo"
-                },
                 menuItem: [{
                         name: "Menu 1"
                     },
@@ -51,11 +47,11 @@
             };
         },
         computed: {
-            logoData() {
-                const data = this.$page.allLogo.edges[0].node
+            logo() {
+                const data = this.$page.logo.edges[0].node
                 const logoData = {
                     title: data.title,
-                    logoUrl: data.logoUrl
+                    logoUrl: data.logo
                 }
 
                 return logoData
