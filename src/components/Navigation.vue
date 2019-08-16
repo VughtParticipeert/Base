@@ -36,13 +36,20 @@
         computed: {
             logo() {
                 const data = this.$page.logo.edges[0].node
-                const logoData = {
-                    title: data.title,
-                    logoUrl: data.logo
+                const logoData = {}
+                if(data) {
+                    logoData = {
+                    title: data.titlesdfds,
+                    logoUrl: data.sdfsdfsdfs
+                    }
+                }else {
+                    logoData = {
+                        title: "",
+                        logoUrl: ""
+                    }
                 }
-                if(logoData){
-                    return logoData
-                }
+
+                return logoData
             },
             menuItems() {
                 const menuItems = this.$page.allMenuItem.edges
