@@ -31,19 +31,6 @@
         data() {
             return {
                 menuActive: false,
-                menuItem: [{
-                        name: "Menu 1"
-                    },
-                    {
-                        name: "Menu 2"
-                    },
-                    {
-                        name: "Menu 3"
-                    },
-                    {
-                        name: "Menu 4"
-                    }
-                ]
             };
         },
         computed: {
