@@ -36,11 +36,11 @@
         computed: {
             logo() {
                 const data = this.$page.logo.edges[0].node
-                const logoData = {}
+                let logoData = {}
                 if(data) {
                     logoData = {
-                    title: data.titlesdfds,
-                    logoUrl: data.sdfsdfsdfs
+                    title: data.title,
+                    logoUrl: data.logo
                     }
                 }else {
                     logoData = {
