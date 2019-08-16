@@ -34,6 +34,13 @@ module.exports = {
         path: 'content/Logo/*.md',
         typeName: 'Logo'
       }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Menu/*.md',
+        typeName: 'Menu'
+      }
     }
   ]
 }
