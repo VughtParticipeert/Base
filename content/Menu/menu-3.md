@@ -1,4 +1,4 @@
 ---
-menu-item: Menu 3
+menu-item: Wie we zijn
 ---
 
