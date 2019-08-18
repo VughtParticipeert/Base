@@ -28,7 +28,7 @@
 
 <static-query>
   query Navigation {
-    allMenuItem: allMenu(order: ASC) {
+    allMenuItem: allMenu(order: DESC) {
         edges {
         node {
             menu_item
@@ -82,7 +82,7 @@
 </script>
 
 <style scoped lang="scss">
-    $break-small: 40rem;
+    $break-small: 57em;
 
     ul {
         list-style: none;
