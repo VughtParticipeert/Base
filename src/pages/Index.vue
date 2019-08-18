@@ -2,7 +2,7 @@
   <Layout>
     <section class="vragen-container">
       <vraag
-        v-for="vraag in $page.vragen.edges" :key="vraag.id"
+        v-for="vraag in this.$page.vragen.edges" :key="vraag.id"
         :title="vraag.node.title"
         :image="vraag.node.featuredImage"
         :date="vraag.node.date"
@@ -26,52 +26,35 @@
         }
       }
     }
-
-  allMenuItem: allMenu(order: ASC) {
-    edges {
-      node {
-        menu_item
-        id
-      }
-    }
-  }
-  
-  logo: allLogo {
-    edges {
-      node {
-        title
-        logo
-      }
-    }
-  }
   }
 </page-query>
 
 
 <script>
-import vraag from "@/templates/vraag"
-export default {
-  components: {
-    vraag
-  },
-  metaInfo: {
-    title: 'Hello, world!'
+  import vraag from "@/templates/vraag"
+  export default {
+    components: {
+      vraag
+    },
+    metaInfo: {
+      title: 'Hello, world!'
+    }
   }
-}
 </script>
 
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html,body {
-  height: 100%;
-}
+  html,body {
+    height: 100%;
+  }
 
-.home-links a {
-  margin-right: 1rem;
-}
+  .home-links a {
+    margin-right: 1rem;
+  }
 </style>

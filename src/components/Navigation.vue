@@ -25,27 +25,48 @@
     </nav>
 </template>
 
+
+<static-query>
+  query Navigation {
+    allMenuItem: allMenu(order: ASC) {
+        edges {
+        node {
+            menu_item
+            id
+        }
+        }
+    }
+
+    logo: allLogo {
+        edges {
+            node {
+                title
+                logo
+            }
+        }
+    }
+  }
+</static-query>
+
 <script>
     export default {
         name: "Navigation",
         data() {
             return {
-                menuActive: false,
+                menuActive: false
             };
         },
         computed: {
             logo() {
-                const data = this.$page.logo.edges[0].node
-                const logoData = {
-                    title: data.title,
-                    logoUrl: data.logo
+                const logo = {
+                    title : this.$static.logo.edges[0].node.title,
+                    logoUrl : this.$static.logo.edges[0].node.logo
                 }
-                
-                return logoData
+                return logo
             },
             menuItems() {
-                const menuItems = this.$page.allMenuItem.edges
-                return menuItems
+                const menuItems = this.$static.allMenuItem.edges
+                return menuItems;
             }
         },
         methods: {
@@ -57,7 +78,7 @@
                 }
             }
         }
-    };
+    }
 </script>
 
 <style scoped lang="scss">
