@@ -1,5 +1,5 @@
 ---
 title: Logo
-logo: /uploads/placeholder-windows-logo.svg
+logo: /uploads/place-holder-qualcomm-logo.svg
 ---
 
