@@ -1,4 +1,4 @@
 ---
-menu-item: Menu 2
+menu-item: Wat wij doen
 ---
 
