@@ -1,4 +1,4 @@
 ---
-menu-item: Menu 4
+menu-item: Onderwerpen
 ---
 
