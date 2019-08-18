@@ -39,6 +39,7 @@ collections:
     slug: "{{slug}}"
     create: true
     description: "Create items to be highlighted. Max (3)"
+    identifier_field: "title"
     fields: 
       - {label: "title", name: "Title", widget: "string"}
       - {label: "image", name: "Image", widget: "image"}
