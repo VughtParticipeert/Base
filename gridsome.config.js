@@ -5,7 +5,9 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Vught',
+  siteUrl: 'https://vught.netlify.com',
+  siteDescription: '',
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
