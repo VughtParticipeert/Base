@@ -43,6 +43,13 @@ module.exports = {
         path: 'content/Menu/*.md',
         typeName: 'Menu'
       }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Jumbotron/*.md',
+        typeName: 'Jumbotron'
+      }
     }
   ]
 }
