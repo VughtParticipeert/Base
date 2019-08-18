@@ -35,52 +35,8 @@ collections:
     slug: "{{slug}}"
     create: true
     description: "Create items to be highlighted. Max (3)" # A description that will displayed below the  in the CMs
-    fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
-      - {label: "title", name: "Title", widget: "string"}
-      - {label: "image", name: "Image", widget: "image"}
-
-  
-  # - label:"Jumbotron"
-  #   name: "jumbotron"
-  #   folder: "content/Jumbotron"
-  #   slug: "{{slug}}"
-  #   create: true
-  #   description: "Create items to be highlighted. Max (3)"
-  #   fields: 
-  #     - {label: "title", name: "Title", widget: "string"}
-  #     - {label: "image", name: "Image", widget: "image"}
-  
-  # - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
-  #   title: "test"
-  #   name: "hallo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
-  #   folder: "content/Menu-item" # Location where the file will be saved
-  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  #   create: true # allows users to create new items in the collection
-  #   description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
-  #   fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
-  #     - {label: "pinda", name: "pinda",  widget: "list", allow_add: true, fields: {label: kaas, name: kaas, widget: string}}
-      
-      
-  # - name: "vragen" # Used in routes, e.g., /admin/collections/blog
-  #   label: "Vragen" # Used in the UI
-  #   folder: "content/vragen" # The path to the folder where the documents are stored
-  #   create: true # Allow users to create new documents in this collection
-  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-  #   fields: # The fields for each document, usually in front matter
-  #     - {label: "Title", name: "title", widget: "string"}
-  #     - {label: "Publish Date", name: "date", widget: "datetime"}
-  #     - {label: "Featured Image", name: "featuredImage", widget: "image"}
-  #     - {label: "Body", name: "body", widget: "markdown"}
-
-
-  # - name: "Post" # Used in routes, e.g., /admin/collections/blog
-  #   label: "Post" # Used in the UI
-  #   folder: "content/Post" # The path to the folder where the documents are stored
-  #   create: true # Allow users to create new documents in this collection
-  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-  #   preview_path: post/{{year}}/{{month}}/{{title}}
-  #   fields: # The fields for each document, usually in front matter
-  #     - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["Test Tag"], field: {label: menuItem, name: Menu Item, widget: string}}
-    
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Tmage", name: "image", widget: "image"} 
 
 
