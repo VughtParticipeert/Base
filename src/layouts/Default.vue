@@ -1,15 +1,15 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <Navigation/>
-      <!-- <strong>
+    <Header/>
+    <!-- <header class="header"> 
+      <strong>
         <g-link to="/">{{ $static.metaData.siteName }}</g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
         <g-link class="nav__link" to="/about">About</g-link>
-      </nav> -->
-    </header>
+      </nav>
+    </header> -->
     <slot/>
   </div>
 </template>
@@ -23,11 +23,11 @@ query {
 </static-query>
 
 <script>
-import Navigation from '~/components/Navigation.vue'
+import Header from '@/components/Header'
 
 export default {
   components: {
-    Navigation
+    Header
   }
 }
 </script>
