@@ -1,5 +1,5 @@
 ---
-title: 'Test '
-image: /uploads/photo-placeholder-2.jpg
+title: Waarom
+image: /uploads/photo1.jpg
 ---
 
