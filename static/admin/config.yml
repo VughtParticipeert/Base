@@ -20,8 +20,6 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
-
-
   - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
     name: "menu" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Menu" # Location where the file will be saved
@@ -31,18 +29,26 @@ collections:
     identifier_field: "menu-item"
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "menu-item", label: "Menu item", widget: "string"}
-
-
-  - label: "Jumbotron"
-    name: "jumbotron"
-    folder: "content/Jumbotron"
+  - label: "Jumbotron" #  label for the collection in the editor UI; defaults to the value of name
+    name: "jumbotron" # (required): unique identifier for the collection, used as the key when referenced in other contexts
+    folder: "content/Jumbotron" # Location where the file will be saved
     slug: "{{slug}}"
     create: true
-    description: "Create items to be highlighted. Max (3)"
-    identifier_field: "title"
-    fields: 
+    description: "Create items to be highlighted. Max (3)" # A description that will displayed below the  in the CMs
+    fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {label: "title", name: "Title", widget: "string"}
       - {label: "image", name: "Image", widget: "image"}
+
+  
+  # - label:"Jumbotron"
+  #   name: "jumbotron"
+  #   folder: "content/Jumbotron"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   description: "Create items to be highlighted. Max (3)"
+  #   fields: 
+  #     - {label: "title", name: "Title", widget: "string"}
+  #     - {label: "image", name: "Image", widget: "image"}
   
   # - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
   #   title: "test"
