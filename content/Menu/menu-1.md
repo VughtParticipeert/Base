@@ -1,4 +1,4 @@
 ---
-menu-item: Menu 1
+menu-item: Waarom
 ---
 
