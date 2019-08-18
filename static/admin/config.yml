@@ -26,7 +26,6 @@ collections:
     slug: "{{slug}}"
     create: true
     description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
-    identifier_field: "menu-item"
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {label: "Menu item", name: "menu-item", widget: "string"}
   - label: "Jumbotron" #  label for the collection in the editor UI; defaults to the value of name
