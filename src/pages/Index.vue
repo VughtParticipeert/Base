@@ -50,7 +50,7 @@
     box-sizing: border-box;
   }
 
-  html,body {
+  body {
     height: 100%;
   }
 

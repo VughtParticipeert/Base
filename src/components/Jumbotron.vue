@@ -55,6 +55,7 @@ export default {
                 text-decoration: none;
                 display: inline-flex;
                 height: 100%;
+                width: 100%;
                 position: relative;
                 justify-content: center;
                 align-items: center;
