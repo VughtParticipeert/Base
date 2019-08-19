@@ -1,28 +1,26 @@
 <template>
   <Layout>
-    <section class="vragen-container">
-      <vraag
-        v-for="vraag in this.$page.vragen.edges" :key="vraag.id"
-        :title="vraag.node.title"
-        :image="vraag.node.featuredImage"
-        :date="vraag.node.date"
-        :content="vraag.node.content"
+    <main v-for="post in allPosts" :key="post.id" class="main-posts">
+      <Posts
+        :title="post.title"
+        :date="post.date"
+        :reason="post.reason"
+        :content="post.content"
       />
-    </section>
+    </main>
   </Layout>
 </template>
 
 <page-query>
-  query allData {
-    vragen: allContent{
+  query Posts {
+    allPosts {
       edges {
         node {
           id
-          path
           title
           date
+          reason
           content
-          featuredImage
         }
       }
     }
@@ -31,19 +29,26 @@
 
 
 <script>
-  import vraag from "@/templates/vraag"
+  import Posts from "@/components/Posts"
   export default {
     components: {
-      vraag
+      Posts
     },
-    metaInfo: {
-      title: 'Hello, world!'
+    computed: {
+      allPosts() {
+        const posts = this.$page.allPosts.edges
+        const allPosts = posts.map(post => {
+          return post.node
+        })
+
+        return allPosts
+      }
     }
   }
 </script>
 
 
-<style>
+<style>  
   .main-posts {
     display: flex;
     display: grid;
