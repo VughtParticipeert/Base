@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -36,6 +36,17 @@ collections:
     description: "Create items to be highlighted. Max (3)" # A description that will displayed below the  in the CMs
     fields: 
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Image", name: "image", widget: "image"} 
+      - {label: "Image", name: "image", widget: "image"}
+  - label: "Post - publication"
+    name: "post-publicatie"
+    folder: "content/Post/Publication"
+    slug: "{{slug}}"
+    create: true
+    description: "Create publication post"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
+      - {label: "Reason", name: "reason", default: "Publicatie", widget: "hidden"} # Will not be displayed in the CMS UI
+      - {label: "Body", name: "body", widget: "markdown"}
 
 
