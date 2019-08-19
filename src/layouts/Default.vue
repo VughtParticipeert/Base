@@ -33,8 +33,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-.nav__link {
-  margin-left: 20px;
-}
+  .layout {
+    background-color: rgb(236, 236, 236);
+  }
 </style>
