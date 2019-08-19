@@ -13,6 +13,9 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
+      slug: true,
+      autolinkHeadings: true,
+      autolinkClassname: true
     }
   },
   plugins: [
@@ -21,13 +24,6 @@ module.exports = {
       options: {
         path: 'content/**/*.md',
         typeName: 'Content'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'content/Post/*.md',
-        typeName: 'Post'
       }
     },
     {
@@ -50,6 +46,20 @@ module.exports = {
         path: 'content/Jumbotron/*.md',
         typeName: 'Jumbotron'
       }
-    }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/*/*.md',
+        typeName: 'Posts'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/Publication/*.md',
+        typeName: 'PostPublication'
+      }
+    },
   ]
 }
