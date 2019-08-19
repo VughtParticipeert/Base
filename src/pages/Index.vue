@@ -44,17 +44,11 @@
 
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    height: 100%;
-  }
-
-  .home-links a {
-    margin-right: 1rem;
+  .main-posts {
+    display: flex;
+    display: grid;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 2rem;
   }
 </style>
