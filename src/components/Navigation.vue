@@ -92,6 +92,10 @@
         display: flex;
         background-color: white;
         height: 4rem;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 100;
 
         .logo-container {
             display: flex;

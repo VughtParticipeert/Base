@@ -45,6 +45,7 @@ export default {
     .jumbotron-container {
         display: none;
         grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 4rem;
 
         .jumbotron-item {
             display: flex;
