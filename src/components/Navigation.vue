@@ -155,7 +155,7 @@
                         }
 
                         &:hover {
-                            color:  var(--primary-color);
+                            color:  var(--secondary-color);
                             transform: scale(1.05);
                         }
                     }

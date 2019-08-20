@@ -1,9 +1,10 @@
 :root {
-    --primary-color: #4ab2e2;
-    --secondary-color: #7fdfd4;
+    --primary-color: #0142a9;
+    --secondary-color: #4ab2e2;
     --accent-color-one: #f5ac43;
     --accent-color-two: #fbac91;
     --material-shadow-one: 0 3px 6px rgba(0, 0, 0, 0.02), 0 3px 10px rgba(0, 0, 0, 0.03);
+    --small-radius: 0.1rem;
 }
 
 * {
@@ -15,4 +16,5 @@
 body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(236, 236, 236);
 }

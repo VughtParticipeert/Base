@@ -67,6 +67,7 @@ export default {
         .title {
             font-size: 2.2em;
             margin-top: 2rem;
+            color: var(--primary-color);
         }
 
         .content {
@@ -106,7 +107,7 @@ export default {
                     display: inline-flex;
                     overflow: hidden;
                     position: relative;
-                    color: var(--primary-color);
+                    color: var(--secondary-color);
                     text-decoration: none;
                     // border-bottom: solid 0.09rem var(--primary-color);
 
@@ -117,7 +118,7 @@ export default {
                         width: 100%;
                         bottom: 0;
                         left: -100%;
-                        background-color: var(--primary-color);
+                        background-color: var(--secondary-color);
                         transition: all 0.2s ease-out;
                     }
 

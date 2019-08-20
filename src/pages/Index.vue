@@ -1,14 +1,17 @@
 <template>
-  <Layout>
-    <main v-for="post in allPosts" :key="post.id" class="main-posts">
+  <LayoutDefault>
+    <main class="main-posts">
+      <h1 class="title">Actuele thema's</h1>
       <Posts
+        v-for="post in allPosts" :key="post.id"
         :title="post.title"
         :date="post.date"
         :reason="post.reason"
         :content="post.content"
+        class="posts"
       />
     </main>
-  </Layout>
+  </LayoutDefault>
 </template>
 
 <page-query>
@@ -30,9 +33,11 @@
 
 <script>
   import Posts from "@/components/Posts"
+  import LayoutDefault from "@/layouts/LayoutDefault.vue"
   export default {
     components: {
-      Posts
+      Posts,
+      LayoutDefault
     },
     computed: {
       allPosts() {
@@ -48,12 +53,22 @@
 </script>
 
 
-<style>  
+<style scoped lang="scss">  
   .main-posts {
     display: flex;
     display: grid;
     justify-content: center;
     margin-top: 4rem;
     padding: 2rem;
+    padding-top: 0;
+
+    .title {
+      color: rgb(189, 189, 189);
+      font-size: 4em;
+    }
+
+    .posts {
+      margin-top: 2rem;
+    }
   }
 </style>
