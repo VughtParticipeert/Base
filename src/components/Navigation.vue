@@ -101,10 +101,12 @@
         .logo-container {
             display: flex;
             padding: 0.7rem;
+            max-width: 10rem;
 
             .logo {
                 display: block;
                 height: 100%;
+                width: 100%;
                 object-fit: contain;
             }
         }
