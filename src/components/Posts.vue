@@ -57,7 +57,7 @@ export default {
                     font-weight: bold;
                     color: white;
                     background-color: #f5ac43;
-                    background-color: var(--accent-color);
+                    background-color: var(--accent-color-one);
                     padding: 0.4rem;
                     border-radius: 0.2rem;
                 }

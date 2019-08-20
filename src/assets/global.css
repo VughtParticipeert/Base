@@ -1,6 +1,8 @@
 :root {
-    --primary-color: #699cff;
-    --accent-color: #f5ac43
+    --primary-color: #a7efe9;
+    --secondary-color: #7fdfd4;
+    --accent-color-one: #f5ac43;
+    --accent-color-two: #fbac91;
 }
 
 * {
