@@ -96,6 +96,7 @@
         position: fixed;
         top: 0;
         z-index: 100;
+        box-shadow: var(--material-shadow-one);
 
         .logo-container {
             display: flex;
@@ -133,6 +134,7 @@
             .menu {
                 display: flex;
                 height: 100%;
+                overflow: hidden;
 
                 .menu-item {
                     a {
@@ -142,7 +144,7 @@
                         height: 100%;
                         text-decoration: none;
                         color: black;
-                        transition: all 0.2s ease-out;
+                        transition: all 0.1s ease-out;
                         font-size: 2.4em;
                         justify-content: center;
 
@@ -153,8 +155,8 @@
                         }
 
                         &:hover {
-                            background-color: black;
-                            color: white;
+                            color:  var(--primary-color);
+                            transform: scale(1.05);
                         }
                     }
                 }
@@ -176,12 +178,8 @@
             cursor: pointer;
             margin-left: auto;
 
-            &:hover {
-                background-color: black;
-            }
-
             &:hover .decoration {
-                background-color: white;
+                background-color: var(--primary-color);
             }
 
             .decoration {

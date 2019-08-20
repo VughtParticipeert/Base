@@ -1,8 +1,9 @@
 :root {
-    --primary-color: #a7efe9;
+    --primary-color: #4ab2e2;
     --secondary-color: #7fdfd4;
     --accent-color-one: #f5ac43;
     --accent-color-two: #fbac91;
+    --material-shadow-one: 0 3px 6px rgba(0, 0, 0, 0.02), 0 3px 10px rgba(0, 0, 0, 0.03);
 }
 
 * {
