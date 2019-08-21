@@ -7,9 +7,9 @@
                 <p class="summary"><span>Vragen onbeantwoord: </span><span class="count">{{question.totalUnanswered}}</span></p>                 
             </section>
             <section class="summary-child-container summary-answer">
-                <p class="summary"><span>Antwoord is volledig: </span><span class="count">0</span></p> 
-                <p class="summary"><span>Antwoord is onvolledig: </span><span class="count">0</span></p> 
-                <p class="summary"><span>Antwoord volstaat niet: </span><span class="count">0</span></p> 
+                <p class="summary"><span>Antwoord is volledig: </span><span class="count">{{answerStatus.complete}}</span></p> 
+                <p class="summary"><span>Antwoord is onvolledig: </span><span class="count">{{answerStatus.inComplete}}</span></p> 
+                <p class="summary"><span>Antwoord volstaat niet: </span><span class="count">{{answerStatus.inSufficient}}</span></p> 
             </section>
         </div>
     </aside>
@@ -27,10 +27,21 @@
                 }
             }
         }
+
+        answer: allPostAnswer {
+            edges {
+                node {
+                    id
+                    title
+                    status
+                }
+            }
+        }
     }
 </static-query>
 
 <script>
+import { element } from 'prop-types';
 export default {
     name: "PostsSummary",
     computed: {
@@ -50,6 +61,38 @@ export default {
             }
 
             return question
+        },
+        answerStatus() {
+            const data = this.$static.answer.edges
+            let countComplete = 0
+            let countIncomplete = 0
+            let countInSufficient = 0
+            const status = {
+                complete: 1,
+                inComplete: 2,
+                inSufficient: 3
+            }
+
+            data.forEach(element => {
+                const answerStatus = element.node.status
+                if(answerStatus === status.complete) {
+                    countComplete++
+                }
+                else if (answerStatus === status.inComplete) {
+                    countIncomplete++
+                }
+                else if (answerStatus === status.inSufficient) {
+                    countInSufficient++
+                }
+            })
+
+            const answerTotalStatus = {
+                complete: countComplete,
+                inComplete: countIncomplete,
+                inSufficient: countInSufficient
+            }
+
+            return answerTotalStatus
         }
     }
 }
