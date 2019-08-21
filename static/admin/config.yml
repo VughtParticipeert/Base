@@ -71,11 +71,7 @@ collections:
       - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
       - {label: "Reason", name: "reason", default: "Antwoord", widget: "hidden"} # Will not be displayed in the CMS UI
       - {label: "Related question", name: "question", widget: "relation", collection: "post-question", searchFields: "post-question.name", valueField: "post-question.name"}
-      - {label: "Status", name: "status", widget: "select", options: 
-        - {label: "Answer is complete", value: 0}
-        - {label: "Answer is incomplete", value: 1}
-        - {label: "Answer is not sufficient", value: 2}
-        }
+      - {label: "Status", name: "status", widget: "select", options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]}
       - {label: "Body", name: "body", widget: "markdown"}
 
 
