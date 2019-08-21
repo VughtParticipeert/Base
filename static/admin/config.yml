@@ -57,8 +57,21 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
-      - {label: "Question", name: "reason", default: "Question", widget: "hidden"} # Will not be displayed in the CMS UI
+      - {label: "Reason", name: "reason", default: "Vraag", widget: "hidden"} # Will not be displayed in the CMS UI
       - {label: "Unanswered", name: "unanswered", default: true, widget: "boolean"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Post - answer"
+    name: "post-answer"
+    folder: "content/Post/Answer"
+    slug: "{{slug}}"
+    create: true
+    description: "Create answer post"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
+      - {label: "Reason", name: "reason", default: "Antwoord", widget: "hidden"} # Will not be displayed in the CMS UI
+      - {label: "Unanswered", name: "unanswered", default: true, widget: "boolean"}
+      - {label: "Post question", name: "question", widget: "relation", collection: "post-question", searchFields: "name", valueField: "name"}
       - {label: "Body", name: "body", widget: "markdown"}
 
 

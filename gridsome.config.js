@@ -66,5 +66,12 @@ module.exports = {
         typeName: 'PostQuestion'
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/Answer/*.md',
+        typeName: 'PostAnswer'
+      }
+    },
   ]
 }
