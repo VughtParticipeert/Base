@@ -1,18 +1,57 @@
 <template>
     <aside class="posts-summary-container">
-        <p class="title">Alle posts</p>
+        <p class="title">Samenvatting vragen</p>
         <div class="summary-container">
-            <p class="summary"><span>Publicatie: </span><span class="count">0</span></p> 
-            <p class="summary"><span>Vraag: </span><span class="count">6</span></p> 
-            <p class="summary"><span>Herrinnering: </span><span class="count">18</span></p> 
-            <p class="summary"><span>Antwoord: </span><span class="count">176</span></p> 
+            <section class="summary-child-container summary-question">
+                <p class="summary"><span>Vragen gesteld: </span><span class="count">{{question.total}}</span></p> 
+                <p class="summary"><span>Vragen onbeantwoord: </span><span class="count">{{question.totalUnanswered}}</span></p>                 
+            </section>
+            <section class="summary-child-container summary-answer">
+                <p class="summary"><span>Antwoord is volledig: </span><span class="count">0</span></p> 
+                <p class="summary"><span>Antwoord is onvolledig: </span><span class="count">0</span></p> 
+                <p class="summary"><span>Antwoord volstaat niet: </span><span class="count">0</span></p> 
+            </section>
         </div>
     </aside>
 </template>
 
+<static-query>
+    query Summary {
+        question: allPostQuestion {
+            totalCount
+            edges {
+                node {
+                    id
+                    title
+                    unanswered
+                }
+            }
+        }
+    }
+</static-query>
+
 <script>
 export default {
-    name: "PostsSummary"
+    name: "PostsSummary",
+    computed: {
+        question() {
+            const data = this.$static.question
+
+            //count how many items are unanswered
+            let countUnanswered = 0;
+            this.$static.question.edges.forEach(element => {
+                if(element.node.unanswered === true) {
+                    countUnanswered++
+                }
+            })
+            const question = {
+                total: data.totalCount,
+                totalUnanswered: countUnanswered
+            }
+
+            return question
+        }
+    }
 }
 </script>
 
@@ -33,7 +72,11 @@ export default {
         }
 
         .summary-container {
-            margin-top: 1rem;
+            margin-top: 2rem;
+
+            .summary-child-container {
+                margin-top: 1rem;
+            }
 
             .summary {
                 display: flex;
