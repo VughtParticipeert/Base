@@ -13,9 +13,7 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
-      slug: true,
-      autolinkHeadings: true,
-      autolinkClassname: true
+      slug: true
     }
   },
   plugins: [
@@ -59,6 +57,13 @@ module.exports = {
       options: {
         path: 'content/Post/Publication/*.md',
         typeName: 'PostPublication'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/Question/*.md',
+        typeName: 'PostQuestion'
       }
     },
   ]

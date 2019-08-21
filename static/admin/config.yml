@@ -48,5 +48,16 @@ collections:
       - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
       - {label: "Reason", name: "reason", default: "Publicatie", widget: "hidden"} # Will not be displayed in the CMS UI
       - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Post - question"
+    name: "post-question"
+    folder: "content/Post/Question"
+    slug: "{{slug}}"
+    create: true
+    description: "Create question post"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
+      - {label: "Question", name: "reason", default: "Question", widget: "hidden"} # Will not be displayed in the CMS UI
+      - {label: "Body", name: "body", widget: "markdown"}
 
 
