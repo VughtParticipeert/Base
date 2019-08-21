@@ -59,6 +59,44 @@ export default {
                 position: relative;
                 justify-content: center;
                 align-items: center;
+                overflow: hidden;
+
+                .title {
+                    display: inline-block;
+                    font-size: 4vw;
+                    position: absolute;
+                    z-index: 1;
+                    color: white;
+                    text-align: center;
+                    text-shadow:
+                        1px 1px 0 rgba(0, 0, 0, 0.05),
+                        -1px -1px 0 rgba(0, 0, 0, 0.05),  
+                        1px -1px 0 rgba(0, 0, 0, 0.05),
+                        -1px 1px 0 rgba(0, 0, 0, 0.05),
+                        1px 1px 0 rgba(0, 0, 0, 0.05);
+                    transition: all 0.2s ease-out;
+                    @media screen and (min-width: $break-small) {
+                        & {
+                            font-size: 3.4em;
+                        }
+                    }
+                }
+    
+                .jumbotron-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: relative;
+                    transition: all 0.2s ease-out;
+                }
+
+                &:hover .jumbotron-image {
+                    transform: scale(1.14);
+                }
+
+                &:hover .title {
+                    color: var(--secondary-color);
+                }
 
                 //overlay
                 &:after {
@@ -72,32 +110,6 @@ export default {
                 }
             }
 
-            .title {
-                display: inline-block;
-                font-size: 4vw;
-                position: absolute;
-                z-index: 1;
-                color: white;
-                text-align: center;
-                text-shadow:
-                    1px 1px 0 rgba(0, 0, 0, 0.212),
-                    -1px -1px 0 rgba(0, 0, 0, 0.212),  
-                    1px -1px 0 rgba(0, 0, 0, 0.212),
-                    -1px 1px 0 rgba(0, 0, 0, 0.212),
-                    1px 1px 0 rgba(0, 0, 0, 0.212);
-                @media screen and (min-width: $break-small) {
-                    & {
-                        font-size: 3.4em;
-                    }
-                }
-            }
-
-            .jumbotron-image {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: relative;
-            }
 
             @media screen  and (min-width: $break-small) {
                 & {

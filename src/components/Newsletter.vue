@@ -23,7 +23,7 @@ export default {
     .newsletter-container {
         background-color: var(--accent-color-two);
         width: 20rem;
-        margin-top: 10.85rem;
+        margin-top: 12.85rem;
         padding: 2rem;
         position: sticky;
         top: 5rem;
@@ -67,12 +67,13 @@ export default {
                 font-size: 1.1em;
                 background-color: white;
                 color: black;
-                transition: all 0.07s ease-out;
+                transition: all 0.1s ease-out;
 
                 &:hover {
                     background-color: var(--secondary-color);
                     color: white;
                     cursor: pointer;
+                    box-shadow: var(--material-shadow-hover);
                 }
             }
         }

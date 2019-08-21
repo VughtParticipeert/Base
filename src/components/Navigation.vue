@@ -95,6 +95,7 @@
         width: 100%;
         position: fixed;
         top: 0;
+        left: 0;
         z-index: 100;
         box-shadow: var(--material-shadow-one);
 
@@ -181,7 +182,7 @@
             margin-left: auto;
 
             &:hover .decoration {
-                background-color: var(--primary-color);
+                background-color: var(--secondary-color);
             }
 
             .decoration {

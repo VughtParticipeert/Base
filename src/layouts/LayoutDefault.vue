@@ -40,24 +40,66 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  $breakpoint-small: 20em;
+  $breakpoint-medium: 40em;
+  $breakpoint-big: 60em;
+  $breakpoint-really-big: 90em;
+
+
   .layout {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-      "header header header"
-      "summary main newsletter";
+      "header"
+      "content";
     justify-items: center;
+    @media screen and (min-width: $breakpoint-big) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: 
+        "header header"
+        "summary content"
+    }
+    @media screen and (min-width: $breakpoint-really-big) {
+      & {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+        "header header header"
+        "summary content newsletter";
+        justify-items: center;
+      }
+    }
 
     .header {
       grid-area: header;
     }
 
-    .posts-summary {
+    .post-summary {
       grid-area: summary;
+      display: none;
+      @media screen and (min-width: $breakpoint-big) {
+        & {
+          display: block;
+        }
+      }
     }
 
     .newsletter {
       grid-area: newsletter;
+      display: none;
+      @media screen and (min-width: $breakpoint-really-big) {
+        & {
+          display: block;
+        }
+      }
+    }
+
+    .content {
+      grid-area: content;
+      margin-top: 2rem;
+      @media screen and (min-width: $breakpoint-medium) {
+        & {
+          margin-top: 0;
+        }
+      }
     }
   } 
 </style>

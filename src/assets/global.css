@@ -4,6 +4,7 @@
     --accent-color-one: #f5ac43;
     --accent-color-two: #fbac91;
     --material-shadow-one: 0 3px 6px rgba(0, 0, 0, 0.02), 0 3px 10px rgba(0, 0, 0, 0.03);
+    --material-shadow-hover:0 27px 20px rgba(0,0,0,0.07), 0 12px 16px rgba(0,0,0,0.14);
     --small-radius: 0.2rem;
 }
 

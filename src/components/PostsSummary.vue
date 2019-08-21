@@ -21,7 +21,7 @@ export default {
         background-color: white;
         width: 20rem;
         border-radius: var(--small-radius);
-        margin-top: 10.85rem;
+        margin-top: 12.85rem;
         padding: 2rem;
         position: sticky;
         top: 5rem;

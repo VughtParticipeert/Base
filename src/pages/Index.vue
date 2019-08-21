@@ -53,14 +53,21 @@
 </script>
 
 
-<style scoped lang="scss">  
+<style scoped lang="scss">
+  $breakpoint-medium: 40em;
+
   .main-posts {
     display: flex;
     display: grid;
     justify-content: center;
     margin-top: 4rem;
-    padding: 2rem;
+    padding: 0.7rem;
     padding-top: 0;
+    @media screen and (min-width: $breakpoint-medium) {
+      & {
+        padding: 2rem;
+      }
+    }
 
     .title {
       color: rgb(189, 189, 189);
