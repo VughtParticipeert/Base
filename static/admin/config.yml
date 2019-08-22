@@ -15,7 +15,7 @@ collections:
     name: "logo" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Logo" # Location where the file will be saved
     slug: "{{slug}}"
-    create: true # allows users to create new items in the collection
+    create: false # allows users to create new items in the collection
     description: "Ensure that there is only one item in this category." # A description that will displayed below the  in the CMs
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
@@ -32,7 +32,7 @@ collections:
     name: "jumbotron" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Jumbotron" # Location where the file will be saved
     slug: "{{slug}}"
-    create: true
+    create: false
     description: "Create items to be highlighted. Max (3)" # A description that will displayed below the  in the CMs
     fields: 
       - {label: "Title", name: "title", widget: "string"}
