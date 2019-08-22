@@ -3,7 +3,7 @@
         <div v-for="item in jumbotronItems" :key="item.id" class="jumbotron-item">
             <a href="">
                 <span class="title">{{item.title}}</span>
-                <img :src="item.image" :alt="item.title" class="jumbotron-image">
+                <g-image :src="item.image" :alt="item.title" class="jumbotron-image" blur="76" quality="76"/>
             </a>
         </div>
     </section>
@@ -46,10 +46,12 @@ export default {
         display: none;
         grid-template-columns: 1fr 1fr 1fr;
         margin-top: 4rem;
+        background: white;
 
         .jumbotron-item {
             display: flex;
             height: 10rem;
+            background: white;
 
             a {
                 text-decoration: none;
@@ -88,6 +90,7 @@ export default {
                     object-fit: cover;
                     position: relative;
                     transition: all 0.2s ease-out;
+                    background: white;
                 }
 
                 &:hover .jumbotron-image {
