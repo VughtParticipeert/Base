@@ -6,7 +6,7 @@
         v-for="post in allPosts" :key="post.id"
         :title="post.title"
         :date="post.date"
-        :reason="post.reason"
+        :typePost="post.typePost"
         :content="post.content"
         class="posts"
       />
@@ -15,15 +15,21 @@
 </template>
 
 <page-query>
-  query Posts {
-    allPosts(sortBy:"date", order: DESC) {
+  query Posts{
+    allThread{
       edges {
         node {
           id
           title
-          date
-          reason
-          content
+          posts{
+            typePost
+            title
+            date
+            typePost
+            unanswered
+            status
+            content:body
+          }
         }
       }
     }
@@ -34,20 +40,46 @@
 <script>
   import Posts from "@/components/Posts"
   import LayoutDefault from "@/layouts/LayoutDefault.vue"
+  import uniqueId from 'lodash.uniqueid'
+
   export default {
     components: {
       Posts,
       LayoutDefault
     },
     computed: {
-      allPosts() {
-        const posts = this.$page.allPosts.edges
-        const allPosts = posts.map(post => {
-          return post.node
+      allPosts() {//Get all post from all threads
+        const data = this.$page.allThread.edges
+        let allPosts = []
+
+        data.forEach(item => {
+          const posts = item.node.posts
+          posts.forEach(post => {
+            post.id = this.createUniqueId() // add unique id to object
+            allPosts.push(post)
+          })
+        })
+
+        //Sort item by date - oldest first
+        allPosts.sort((a,b)=> {
+          const dateA = new Date(a.date)
+          const dateB = new Date(b.date)
+          return dateB - dateA
         })
 
         return allPosts
       }
+    },
+    methods: {
+      createUniqueId() {
+        const array = new Uint32Array(1);
+        const randomNumber =  window.crypto.getRandomValues(array);
+        const id = `id_${randomNumber[0]}`
+        return id
+      }
+    },
+    created() {
+      this.createUniqueId()
     }
   }
 </script>

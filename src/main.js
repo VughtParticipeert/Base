@@ -2,9 +2,12 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import '~/assets/global.css'
+import UniqueId from 'vue-unique-id';
+const moment = require('vue-moment');
 require('roboto-fontface')
 
-export default function (Vue, { router, head, isClient }) {
+
+export default function (Vue, {router, head, isClient }) {
   // Set default layout as a global component
-  Vue.component()
+  Vue.use(moment,UniqueId)
 }

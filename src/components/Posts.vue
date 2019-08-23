@@ -1,8 +1,8 @@
 <template>
     <article class="post-container">
         <section class="meta-data">
-            <p class="date-container"><span>Gepost op:</span><span>{{date}}</span></p>
-            <p class="reason-container"><span class="reason-text">{{reason}}</span></p>
+            <p class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
+            <p class="reason-container"><span class="reason-text">{{typePost}}</span></p>
         </section>
         <h1 class="title">{{title}}</h1>
         <section v-html="content" class="content"></section>
@@ -22,7 +22,7 @@ export default {
             type: String,
             required: true
         },
-        reason: {
+        typePost: {
             type: String,
             required: true
         },
@@ -30,6 +30,9 @@ export default {
             type: String,
             required: true
         }
+    },
+    created() {
+        console.log(this)
     }
 }
 </script>
@@ -48,6 +51,10 @@ export default {
                 display: flex;
                 flex-wrap: wrap;
                 color: #797979;
+
+                span {
+                    margin-right: 0.7rem;
+                }
             }
 
             .reason-container {
