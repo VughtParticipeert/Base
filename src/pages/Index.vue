@@ -40,7 +40,6 @@
 <script>
   import Posts from "@/components/Posts"
   import LayoutDefault from "@/layouts/LayoutDefault.vue"
-  import uniqueId from 'lodash.uniqueid'
 
   export default {
     components: {
@@ -53,9 +52,11 @@
         let allPosts = []
 
         data.forEach(item => {
+          const threadId = item.node.id
           const posts = item.node.posts
           posts.forEach(post => {
             post.id = this.createUniqueId() // add unique id to object
+            post.threadId = threadId //Add foreign key to the parent id
             allPosts.push(post)
           })
         })
@@ -77,9 +78,6 @@
         const id = `id_${randomNumber[0]}`
         return id
       }
-    },
-    created() {
-      this.createUniqueId()
     }
   }
 </script>

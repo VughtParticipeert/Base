@@ -30,9 +30,6 @@ export default {
             type: String,
             required: true
         }
-    },
-    created() {
-        console.log(this)
     }
 }
 </script>
