@@ -5,7 +5,7 @@ posts:
       Samen voor Vught heeft met hulp van vele inwoners een zienswijze op het
       PHS OTB en MER opgesteld. Bent u geinteresseerd in deze zienswijze dan
       [kunt u deze hier bekijken.](https://google.com)
-    date: 2019-08-22T22:00:00.000Z
+    date: 2019-08-03T22:00:00.000Z
     title: Zienswijze OTB En MER PHS Test 2
     typePost: Publicatie
     unanswered: true
@@ -26,7 +26,7 @@ posts:
 
 
       ![Gele trein](/./uploads/photo-placeholder-2.jpg "Trein")
-    date: 2019-08-26T22:00:00.000Z
+    date: 2019-08-04T22:00:00.000Z
     status: 2
     title: Wonen Langs Het Spoor Test 2
     typePost: Vraag
