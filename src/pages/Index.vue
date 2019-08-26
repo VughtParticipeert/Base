@@ -48,7 +48,8 @@
     },
     data() {
       return {
-        title: ""
+        title: "",
+        test: ""
       }
     },
     computed: {
@@ -83,11 +84,13 @@
     },
     methods: {
       createUniqueId() {
-        const array = new Uint32Array(1);
-        const randomNumber =  window.crypto.getRandomValues(array);
-        const id = `id_${randomNumber[0]}`
+        const randomNumber =  Math.floor(Math.random() * Math.floor(1000000000));
+        const id = `id_${randomNumber}`
         return id
       }
+    },
+    mounted() {
+      this.test = window
     }
   }
 </script>
