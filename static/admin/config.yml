@@ -22,6 +22,7 @@ collections:
       - {name: "logo", label: "Logo", widget: "image"}
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {label: "Menu item", name: "menu-item", widget: "string"}
+  - label: "Thread"
   - label: "Jumbotron" #  label for the collection in the editor UI; defaults to the value of name
     name: "jumbotron" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Jumbotron" # Location where the file will be saved
@@ -31,7 +32,15 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
-  - label: "Thread"
+  - label: "About" #  label for the collection in the editor UI; defaults to the value of name
+    name: "about" # (required): unique identifier for the collection, used as the key when referenced in other contexts
+    folder: "content/About" # Location where the file will be saved
+    slug: "{{slug}}"
+    create: true
+    description: "Create post about your organisation" # A description that will displayed below the  in the CMs
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
     name: "thread"
     folder: "content/Thread"
     slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
