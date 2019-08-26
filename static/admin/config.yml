@@ -20,12 +20,6 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
-  - label: "Menu items" #  label for the collection in the editor UI; defaults to the value of name
-    name: "menu" # (required): unique identifier for the collection, used as the key when referenced in other contexts
-    folder: "content/Menu" # Location where the file will be saved
-    slug: "{{slug}}"
-    create: true
-    description: "Create menu items that will be added to the navigation. Max (7)" # A description that will displayed below the  in the CMs
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {label: "Menu item", name: "menu-item", widget: "string"}
   - label: "Jumbotron" #  label for the collection in the editor UI; defaults to the value of name
@@ -37,42 +31,6 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
-  - label: "Post - publication"
-    name: "post-publicatie"
-    folder: "content/Post/Publication"
-    slug: "{{slug}}"
-    create: true
-    description: "Create publication post"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
-      - {label: "Reason", name: "reason", default: "Publicatie", widget: "hidden"} # Will not be displayed in the CMS UI
-      - {label: "Body", name: "body", widget: "markdown"}
-  - label: "Post - question"
-    name: "post-question"
-    folder: "content/Post/Question"
-    slug: "{{slug}}"
-    create: true
-    description: "Create question post"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
-      - {label: "Reason", name: "reason", default: "Vraag", widget: "hidden"} # Will not be displayed in the CMS UI
-      - {label: "Unanswered", name: "unanswered", default: true, widget: "boolean"}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - label: "Post - answer"
-    name: "post-answer"
-    folder: "content/Post/Answer"
-    slug: "{{slug}}"
-    create: true
-    description: "Create answer post"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", format: "DD-MM-YYYY", widget: "date"}
-      - {label: "Reason", name: "reason", default: "Antwoord", widget: "hidden"} # Will not be displayed in the CMS UI
-      - {label: "Related question", name: "question", widget: "relation", collection: "post-question", searchFields: "title", valueField: "title"}
-      - {label: "Status", name: "status", widget: "select", options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]}
-      - {label: "Body", name: "body", widget: "markdown"}
   - label: "Thread"
     name: "thread"
     folder: "content/Thread"
