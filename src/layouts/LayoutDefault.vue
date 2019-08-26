@@ -4,7 +4,7 @@
       <Header/>
     </div>
     <div class="post-summary">
-      <PostsSummary/>
+      <PostsSummary v-if="!disableSummary"/>
     </div>
     <div class="newsletter">
       <Newsletter/>
@@ -43,6 +43,10 @@ export default {
     title: {
       type: String,
       default: "Actuele thema's"
+    },
+    disableSummary: {
+      type: Boolean,
+      default: false
     }
   },
   created() {
