@@ -11,8 +11,17 @@
 
         <section :class="{active: menuActive}" class="menu-item-container">
             <ul class="menu">
-                <li v-for="item in menuItems" :key="item.node.id" class="menu-item">
-                    <a href="#">{{item.node.menu_item}}</a>
+                <li class="menu-item">
+                    <g-link to="/about">Over ons</g-link>
+                </li>
+                <li class="menu-item">
+                    <g-link to="/">Onderwerpen</g-link>
+                </li>
+                <li class="menu-item">
+                    <g-link to="/">Archief</g-link>
+                </li>
+                <li class="menu-item">
+                    <g-link to="/">Contact</g-link>
                 </li>
             </ul>
         </section>
