@@ -81,5 +81,12 @@ module.exports = {
         route: '/thread/:title/:id'
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/About/*.md',
+        typeName: 'About',
+      }
+    },
   ]
 }

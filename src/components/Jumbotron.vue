@@ -1,10 +1,10 @@
 <template>
     <section class="jumbotron-container">
         <div v-for="item in jumbotronItems" :key="item.id" class="jumbotron-item">
-            <a href="">
+            <g-link to="/about">
                 <span class="title">{{item.title}}</span>
                 <g-image :src="item.image" :alt="item.title" class="jumbotron-image" blur="76" quality="76"/>
-            </a>
+            </g-link>
         </div>
     </section>
 </template>

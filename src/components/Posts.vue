@@ -1,11 +1,11 @@
 <template>
     <article class="post-container">
-        <section class="meta-data">            
+        <section v-if="!disableMetaData" class="meta-data">            
             <p class="thread-container"><span class="thread-text">{{thread}}</span></p>
             <p class="reason-container"><span class="reason-text">{{typePost}}</span></p>
         </section>
         <h1 class="title">{{title}}</h1>
-        <p class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
+        <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
         <section v-html="content" class="content"></section>
     </article>
 </template>
@@ -21,11 +21,9 @@ export default {
         },
         date: {
             type: String,
-            required: true
         },
         typePost: {
             type: String,
-            required: true
         },
         content: {
             type: String,
@@ -33,7 +31,10 @@ export default {
         },
         thread: {
             type: String,
-            required: true
+        },
+        disableMetaData: {
+            type: Boolean,
+            default: false
         }
     }
 }
