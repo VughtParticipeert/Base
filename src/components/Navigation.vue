@@ -11,17 +11,38 @@
 
         <section :class="{active: menuActive}" class="menu-item-container">
             <ul class="menu">
-                <li class="menu-item">
-                    <g-link to="/about">Over ons</g-link>
+                <li class="menu-item menuItemWithSub">
+                    <button @click="subMenu" :class="{active:subMenuActive}"
+                        class="link button">
+                        <span>Onderwerpen</span>
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129"
+                                    enable-background="new 0 0 129 129">
+                                    <g>
+                                        <path
+                                            d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
+                                    </g>
+                                </svg>
+                            </span>
+                    </button>
+                    <ul v-if="subMenuActive" class="sub-menu-container theme-container">
+                        <li>
+                            <g-link to="/a" class="link">Autoweg</g-link>
+                        </li>
+                        <li>
+                            <g-link to="/b" class="link">Snelweg</g-link>
+                        </li>
+                        <li>
+                            <g-link to="/c" class="link">Drukte</g-link>    
+                        </li>
+                    </ul>
                 </li>
                 <li class="menu-item">
-                    <g-link to="/">Onderwerpen</g-link>
+                    <g-link to="/about" class="link">Over ons</g-link>
                 </li>
                 <li class="menu-item">
-                    <g-link to="/">Archief</g-link>
-                </li>
-                <li class="menu-item">
-                    <g-link to="/">Contact</g-link>
+                    <g-link to="/contact" class="link">Contact</g-link>
                 </li>
             </ul>
         </section>
@@ -37,15 +58,6 @@
 
 <static-query>
   query Navigation {
-    allMenuItem: allMenu(order: DESC) {
-        edges {
-        node {
-            menu_item
-            id
-        }
-        }
-    }
-
     logo: allLogo {
         edges {
             node {
@@ -62,7 +74,8 @@
         name: "Navigation",
         data() {
             return {
-                menuActive: false
+                menuActive: false,
+                subMenuActive: false
             };
         },
         computed: {
@@ -84,6 +97,13 @@
                     this.menuActive = true;
                 } else if (this.menuActive === true) {
                     this.menuActive = false;
+                }
+            },
+            subMenu() {
+                if (this.subMenuActive === false) {
+                    this.subMenuActive = true;
+                } else if (this.subMenuActive === true) {
+                    this.subMenuActive = false;
                 }
             }
         }
@@ -149,7 +169,22 @@
                 overflow: hidden;
 
                 .menu-item {
-                    a {
+                    &.active {
+                        color: var(--secondary-color);
+                        color: red;
+                    }
+
+                    &.menuItemWithSub {
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+
+                        @media screen and (min-width: $break-small) {
+                            display: block;
+                        }
+                    }
+
+                    .link {
                         padding: 1rem;
                         display: flex;
                         align-items: center;
@@ -159,6 +194,9 @@
                         transition: all 0.1s ease-out;
                         font-size: 2.4em;
                         justify-content: center;
+                        border: none;
+                        background-color: white;
+                        outline: none;
 
                         @media screen and (min-width: $break-small) {
                             & {
@@ -169,6 +207,46 @@
                         &:hover {
                             color:  var(--secondary-color);
                             transform: scale(1.05);
+                        }
+
+                        &:hover path {
+                            fill: var(--secondary-color);
+                        }
+
+                        &.active {
+                            color: var(--secondary-color);
+                        }
+
+                        path {
+                            transition: all 0.4s ease-out;
+                            transform-origin: center;
+                        }
+
+                        &.active path {
+                            fill: var(--secondary-color);
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .button {
+                        .icon {
+                            width: 2rem;
+                            height: 2rem;
+                            margin-left: 0.4rem;
+
+                            @media screen and (min-width: $break-small) {
+                                width: 1rem;
+                                height: 1rem;
+                            }
+
+                        }
+                    }
+
+                    .sub-menu-container {
+                        @media screen and (min-width: $break-small) {
+                            position: absolute;
+                            padding: 1rem;
+                            background-color: white;
                         }
                     }
                 }
