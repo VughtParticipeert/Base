@@ -10,7 +10,10 @@
       <Newsletter/>
     </div>
     <div class="content">
+      <main class="main-posts">
+      <h1 class="title">{{this.title}}</h1>
       <slot/>
+    </main>
     </div>
   </div>
 </template>
@@ -35,6 +38,15 @@ export default {
     Header,
     PostsSummary,
     Newsletter
+  },
+  props: {
+    title: {
+      type: String,
+      default: "Actuele thema's"
+    }
+  },
+  created() {
+    console.log(this.title)
   }
 }
 </script>
@@ -100,6 +112,29 @@ export default {
           margin-top: 0;
         }
       }
+      
+      .main-posts {
+        display: flex;
+        display: grid;
+        justify-content: center;
+        margin-top: 4rem;
+        padding: 0.7rem;
+        padding-top: 0;
+        @media screen and (min-width: $breakpoint-medium) {
+          & {
+            padding: 2rem;
+          }
+        }
+
+      .title {
+        color: rgb(189, 189, 189);
+        font-size: 4em;
+      }
+
+      .posts {
+        margin-top: 2rem;
+      }
+    }
     }
   } 
 </style>

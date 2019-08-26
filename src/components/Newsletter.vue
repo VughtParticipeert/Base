@@ -65,13 +65,12 @@ export default {
                 font-weight: 500;
                 width: 100%;
                 font-size: 1.1em;
-                background-color: white;
-                color: black;
-                transition: all 0.1s ease-out;
+                background-color: var(--secondary-color);
+                color: white;
+                transition: all 0.4s ease-out;
+                box-shadow: var(--material-shadow-one);
 
                 &:hover {
-                    background-color: var(--secondary-color);
-                    color: white;
                     cursor: pointer;
                     box-shadow: var(--material-shadow-hover);
                 }

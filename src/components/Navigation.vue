@@ -1,12 +1,12 @@
 <template>
     <nav class="navigation">
         <section class="logo-container">
-            <a href="#">
+            <g-link to="/">
                 <img class="logo" :src="logo.logoUrl" 
                   :title="logo.title"
                   :alt="logo.title"
                 >
-            </a>
+            </g-link>
         </section>
 
         <section :class="{active: menuActive}" class="menu-item-container">

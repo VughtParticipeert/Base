@@ -77,7 +77,8 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'content/Thread/*.md',
-        typeName: 'Thread'
+        typeName: 'Thread',
+        route: '/thread/:title/:id'
       }
     },
   ]

@@ -1,10 +1,11 @@
 <template>
     <article class="post-container">
-        <section class="meta-data">
-            <p class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
+        <section class="meta-data">            
+            <p class="thread-container"><span class="thread-text">{{thread}}</span></p>
             <p class="reason-container"><span class="reason-text">{{typePost}}</span></p>
         </section>
         <h1 class="title">{{title}}</h1>
+        <p class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
         <section v-html="content" class="content"></section>
     </article>
 </template>
@@ -29,6 +30,10 @@ export default {
         content: {
             type: String,
             required: true
+        },
+        thread: {
+            type: String,
+            required: true
         }
     }
 }
@@ -40,41 +45,68 @@ export default {
         background-color: white;
         padding: 2rem;
         border-radius: 0.2rem;
+        margin-top: 2rem;
+        display: grid;
+        grid-template-areas: 
+            "metaData"
+            "title"
+            "date"
+            "content"
+        ;
 
         .meta-data {
             display: flex;
+            grid-area: metaData;
+            font-size: 1.1em;
+            background-color: rgb(252, 252, 252);
 
-            .date-container {
-                display: flex;
-                flex-wrap: wrap;
-                color: #797979;
-
-                span {
-                    margin-right: 0.7rem;
-                }
+            .reason-text, .thread-text {
+                padding: 0.4rem 0.7rem;
+                border-radius: 0.2rem;
+                color: white;
             }
 
             .reason-container {
                 margin-left: auto;
 
                 .reason-text{
-                    font-weight: bold;
-                    color: white;
                     background-color: #f5ac43;
                     background-color: var(--accent-color-one);
-                    padding: 0.4rem;
-                    border-radius: 0.2rem;
+                }
+            }
+
+            .thread-container {
+                margin-right: auto;
+
+                .thread-text {
+                    color: #797979;
+                    border: solid 1px #a6a6a6;
+                    background-color: white;
                 }
             }
         }
 
         .title {
+            grid-area: "title";
             font-size: 2.2em;
             margin-top: 2rem;
             color: var(--primary-color);
         }
 
+        .date-container {
+            grid-area: date;
+            display: flex;
+            flex-wrap: wrap;
+            color: #797979;
+            margin-top: 0.4rem;
+
+            span {
+                margin-right: 0.7rem;
+            }
+        }
+
         .content {
+            grid-area: content;
             margin-top: 2rem;
             line-height: 1.4;
 

@@ -1,16 +1,15 @@
 <template>
   <LayoutDefault>
-    <main class="main-posts">
-      <h1 class="title">Actuele thema's</h1>
+    <g-link v-for="post in allPosts" :key="post.id" :to="post.path" class="g-link">
       <Posts
-        v-for="post in allPosts" :key="post.id"
-        :title="post.title"
-        :date="post.date"
-        :typePost="post.typePost"
-        :content="post.content"
-        class="posts"
+      :title="post.title"
+      :date="post.date"
+      :typePost="post.typePost"
+      :content="post.content"
+      :thread="post.threadTitle"
+      class="posts"
       />
-    </main>
+    </g-link>
   </LayoutDefault>
 </template>
 
@@ -21,6 +20,7 @@
         node {
           id
           title
+          path
           posts{
             typePost
             title
@@ -46,6 +46,11 @@
       Posts,
       LayoutDefault
     },
+    data() {
+      return {
+        title: ""
+      }
+    },
     computed: {
       allPosts() {//Get all post from all threads
         const data = this.$page.allThread.edges
@@ -53,10 +58,14 @@
 
         data.forEach(item => {
           const threadId = item.node.id
+          const threadTitle = item.node.title
+          const path = item.node.path
           const posts = item.node.posts
           posts.forEach(post => {
             post.id = this.createUniqueId() // add unique id to object
             post.threadId = threadId //Add foreign key to the parent id
+            post.threadTitle = threadTitle
+            post.path = path
             allPosts.push(post)
           })
         })
@@ -68,6 +77,7 @@
           return dateB - dateA
         })
 
+        console.log('allPosts: ', allPosts);
         return allPosts
       }
     },
@@ -104,8 +114,17 @@
       font-size: 4em;
     }
 
-    .posts {
-      margin-top: 2rem;
+    .g-link {
+      text-decoration: none;
+      color: black;
+
+      .posts {
+        transition: all 0.4s ease-out;
+      }
+
+      &:hover .posts{
+        box-shadow: var(--material-shadow-hover);
+      }
     }
   }
 </style>
