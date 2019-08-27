@@ -1,14 +1,14 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
 display_url: https://vught.netlify.com
 
 media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
-public_folder: "./uploads" # The src attribute for uploaded media will begin with /uploads
+public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
 
 collections:
   - label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
@@ -38,25 +38,35 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Theme"
+    name: "theme"
+    folder: "content/Theme"
+    slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
+    create: true
+    description: Add theme to your content.
+    identifier_field: themeName
+    fields: 
+      - {label: "Theme", name: "themeName", widget: "string"}
   - label: "Thread"
     name: "thread"
     folder: "content/Thread"
     slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
     create: true
-    Description: "A thread is a reference to the different posts that belong together."
+    description: "A thread is a reference to the different posts that belong together."
     fields: 
       - {label: "Title of the thread", name: "title", widget: "string"}
       - {label: "Post", name: "posts", widget: "list", fields: [
           {label: "Title", name: "title", widget: "string"},
+          {label: "Date", name: "date", widget: datetime},
+          {label: "Theme", name: "theme", widget: relation, collection: theme, searchFields: ["themeName"], valueField: "themeName"},
           {label: "Type of post", name: "typePost", widget: "select", options: [
             {label: "Publication", value: "Publicatie"},
             {label: "Question", value: "Vraag"},
             {label: "Reminder", value: "Herinering"},
             {label: "Answer", value: "Antwoord"}
           ]},
-          {label: "Date", name: "date", widget: datetime},
-          {label: "Unanswered", name: "unanswered", default: true, widget: "boolean"},
-          {label: "Status", name: "status", widget: "select",  required: false, options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
+          {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select",  required: false, options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
+          {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: true, widget: "boolean"},
           {label: "Body", name: "body", widget: "markdown"}
         ]}
 
