@@ -4,7 +4,7 @@
             <g-link to="/about">
                 <span class="title">{{item.title}}</span>
                 <img
-                    :srcset="`${item.image}?nf_resize=fit&w=700 700w, ${item.image}?nf_resize=fit&w=500 500w, ${item.image}?nf_resize=fit&w=400 400w`" 
+                    :srcset="`${item.image}?nf_resize=fit&w=700 700w, ${item.image}?nf_resize=fit&w=400 400w, ${item.image}?nf_resize=fit&w=200 200w`" 
                     :src="item.image" :alt="item.title" class="jumbotron-image">
             </g-link>
         </div>
