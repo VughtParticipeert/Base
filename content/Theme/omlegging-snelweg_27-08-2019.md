@@ -1,4 +1,4 @@
 ---
-themeName: omlegging snelweg
+themeName: Omlegging weg
 ---
 
