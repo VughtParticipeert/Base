@@ -4,9 +4,7 @@
       <Header/>
     </div>
     <div class="post-summary"> 
-      <transition name="fade" appear>
-        <PostsSummary v-if="!disableSummary"/>
-      </transition>
+      <PostsSummary v-if="!disableSummary"/>
     </div>
     <div class="newsletter">
       <Newsletter/>

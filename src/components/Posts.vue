@@ -1,8 +1,9 @@
 <template>
     <article class="post-container">
         <section v-if="!disableMetaData" class="meta-data">            
-            <p class="thread-container"><span class="thread-text">{{thread}}</span></p>
-            <p class="reason-container"><span class="reason-text">{{typePost}}</span></p>
+            <p class="thread-container"><span>groep: </span><span class="thread-text">{{thread}}</span></p>
+            <p class="theme-container"><span>thema: </span><span class="theme-text">{{theme}}</span></p>
+            <p class="reason-container"><span>type: </span><span class="reason-text">{{typePost}}</span></p>
         </section>
         <h1 class="title">{{title}}</h1>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
@@ -21,6 +22,9 @@ export default {
         },
         date: {
             type: String,
+        },
+        theme: {
+            type: String
         },
         typePost: {
             type: String,
@@ -60,19 +64,19 @@ export default {
             grid-area: metaData;
             font-size: 1.1em;
             background-color: rgb(252, 252, 252);
+            color: rgb(114, 114, 114);
 
-            .reason-text, .thread-text {
+            .reason-text, .thread-text, .theme-text {
                 padding: 0.4rem 0.7rem;
                 border-radius: 0.2rem;
-                color: white;
+                font-weight: medium;
             }
 
             .reason-container {
                 margin-left: auto;
 
                 .reason-text{
-                    background-color: #f5ac43;
-                    background-color: var(--accent-color-one);
+                    color: var(--accent-color-one);
                 }
             }
 
@@ -80,9 +84,13 @@ export default {
                 margin-right: auto;
 
                 .thread-text {
-                    color: #797979;
-                    border: solid 1px #a6a6a6;
-                    background-color: white;
+                    color: black;
+                }
+            }
+
+            .theme-container {
+                .theme-text {
+                    color: var(--accent-color-two);
                 }
             }
         }
