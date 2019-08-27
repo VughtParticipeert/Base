@@ -3,7 +3,9 @@
         <div v-for="item in jumbotronItems" :key="item.id" class="jumbotron-item">
             <g-link to="/about">
                 <span class="title">{{item.title}}</span>
-                <g-image :src="item.image" :alt="item.title" class="jumbotron-image" blur="76" quality="76"/>
+                <img
+                    :srcset="`${item.image}?nf_resize=fit&w=700 700w, ${item.image}?nf_resize=fit&w=500 500w, ${item.image}?nf_resize=fit&w=400 400w`" 
+                    :src="item.image" :alt="item.title" class="jumbotron-image">
             </g-link>
         </div>
     </section>
