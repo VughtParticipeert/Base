@@ -26,17 +26,19 @@
                                 </svg>
                             </span>
                     </button>
+                      <transition name="slide-fade">
                     <ul v-if="subMenuActive" class="sub-menu-container theme-container">
                         <li>
-                            <g-link to="/a" class="link">Autoweg</g-link>
+                            <g-link to="/a" class="link"><span>- </span> Autoweg</g-link>
                         </li>
                         <li>
-                            <g-link to="/b" class="link">Snelweg</g-link>
+                            <g-link to="/b" class="link"><span>- </span> Snelweg</g-link>
                         </li>
                         <li>
-                            <g-link to="/c" class="link">Drukte</g-link>    
+                            <g-link to="/c" class="link"><span>- </span> Drukte</g-link>    
                         </li>
                     </ul>
+                      </transition>
                 </li>
                 <li class="menu-item">
                     <g-link to="/about" class="link">Over ons</g-link>
@@ -248,6 +250,13 @@
                             padding: 1rem;
                             background-color: white;
                         }
+
+                        
+                        .link {
+                            span {
+                                margin-right: 0.4rem;
+                            }
+                        }
                     }
                 }
             }
@@ -309,5 +318,18 @@
                 }
             }
         }
+    }
+
+    .slide-fade-enter-active, .slide-fade-leave-active{
+        transition: all 0.4s ease-out;
+    }
+    .slide-fade-leave-active{
+        transition: all 0.2s ease-out;
+    }
+
+    .slide-fade-enter, .slide-fade-leave-to
+        /* .slide-fade-leave-active below version 2.1.8 */ {
+        transform: translatey(-2rem);
+        opacity: 0;
     }
 </style>

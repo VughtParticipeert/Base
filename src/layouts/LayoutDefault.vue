@@ -3,17 +3,21 @@
     <div class="header">
       <Header/>
     </div>
-    <div class="post-summary">
-      <PostsSummary v-if="!disableSummary"/>
+    <div class="post-summary"> 
+      <transition name="fade" appear>
+        <PostsSummary v-if="!disableSummary"/>
+      </transition>
     </div>
     <div class="newsletter">
       <Newsletter/>
     </div>
     <div class="content">
-      <main class="main-posts">
-      <h1 class="title">{{this.title}}</h1>
-      <slot/>
-    </main>
+      <transition name="fade" appear>
+        <main class="main-posts">
+          <h1 class="title">{{this.title}}</h1>
+          <slot/>
+        </main>
+       </transition>
     </div>
   </div>
 </template>
@@ -141,4 +145,13 @@ export default {
     }
     }
   } 
+
+.fade-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.fade-enter {
+  transform: translateY(2rem);
+  opacity: 0;
+}
 </style>
