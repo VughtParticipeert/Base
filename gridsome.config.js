@@ -34,43 +34,8 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/Menu/*.md',
-        typeName: 'Menu'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
         path: 'content/Jumbotron/*.md',
         typeName: 'Jumbotron'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'content/Post/*/*.md',
-        typeName: 'Posts'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'content/Post/Publication/*.md',
-        typeName: 'PostPublication'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'content/Post/Question/*.md',
-        typeName: 'PostQuestion'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'content/Post/Answer/*.md',
-        typeName: 'PostAnswer'
       }
     },
     {
@@ -84,16 +49,16 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/About/*.md',
-        typeName: 'About',
+        path: 'content/Theme/*.md',
+        typeName: 'Theme',
+        route: '/theme/:themeName'
       }
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/Theme/*.md',
-        typeName: 'Theme',
-        route: '/theme/:themeName'
+        path: 'content/About/*.md',
+        typeName: 'About',
       }
     },
   ]
