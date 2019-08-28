@@ -12,11 +12,7 @@ module.exports = {
     remark: {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-      anchorClassName: 'icon icon-link',
-      squeezeParagraphs: false,
-      plugin: [
-        'remark-attr'
-      ]
+      anchorClassName: 'icon icon-link'
     }
   },
   plugins: [

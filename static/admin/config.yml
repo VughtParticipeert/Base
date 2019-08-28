@@ -53,7 +53,6 @@ collections:
     slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
     create: true
     description: "A thread is a reference to the different posts that belong together."
-    format: json-frontmatter
     fields: 
       - {label: "Title of the thread", name: "title", widget: "string"}
       - {label: "test", name: "test", widget: "markdown"}
