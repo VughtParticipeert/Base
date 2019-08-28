@@ -5,16 +5,16 @@
 		<div class="button-container">
       <GoBack/>
     </div>
-		<g-link v-for="post in this.filteredPost" :key="post.id" :to="post.path" class="g-link">
-			<Posts
-					:title="post.title"
-					:date="post.date"
-					:typePost="post.typePost"
-					:content="post.content"
-					:theme="post.theme"
-					:thread="post.threadTitle"
-			/>
-		</g-link>
+		<Posts
+				v-for="post in this.filteredPost" :key="post.id"
+				:title="post.title"
+				:date="post.date"
+				:typePost="post.typePost"
+				:content="post.content"
+				:theme="post.theme"
+				:thread="post.threadTitle"
+				:linkPath="post.path"
+		/>
     </LayoutDefault>
 </template>
 
@@ -125,18 +125,5 @@
         box-shadow: var(--material-shadow-hover);
       }
     }
-	}
-	
-	.g-link {
-		text-decoration: none;
-		color: black;
-
-		.posts {
-			transition: all 0.4s ease-out;
-		}
-
-		&:hover .posts {
-			box-shadow: var(--material-shadow-hover);
-		}
 	}
 </style>

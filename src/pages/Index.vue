@@ -1,16 +1,15 @@
 <template>
   <LayoutDefault>
-    <g-link v-for="post in allPosts" :key="post.id" :to="`${post.path}#main`" class="g-link">
-      <Posts
+      <Posts v-for="post in allPosts" :key="post.id"
       :title="post.title"
       :date="post.date"
       :typePost="post.typePost"
       :content="post.content"
       :theme="post.theme"
       :thread="post.threadTitle"
+      :linkPath="`${post.path}#main`"
       class="posts"
       />
-    </g-link>
   </LayoutDefault>
 </template>
 
@@ -113,19 +112,6 @@
     .title {
       color: rgb(189, 189, 189);
       font-size: 4em;
-    }
-
-    .g-link {
-      text-decoration: none;
-      color: black;
-
-      .posts {
-        transition: all 0.4s ease-out;
-      }
-
-      &:hover .posts{
-        box-shadow: var(--material-shadow-hover);
-      }
     }
   }
 </style>
