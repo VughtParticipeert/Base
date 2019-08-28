@@ -83,7 +83,7 @@ export default {
                 margin-right: auto;
 
                 .thread-text {
-                    color: black;
+                    color: var(--accent-color-three);
                 }
             }
 
