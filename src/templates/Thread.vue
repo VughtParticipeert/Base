@@ -11,6 +11,7 @@
         :date="post.date"
         :typePost="post.typePost"
         :content="post.content"
+        :theme="post.theme"
         :thread="threadTitle"
     />
     </LayoutDefault>
@@ -23,6 +24,7 @@
             posts{
             typePost
             title
+            theme
             date
             typePost
             unanswered
@@ -47,7 +49,7 @@
         },
         computed: {
           threadTitle() {
-            return this.$route.params.title
+            return this.$page.thread.title
           }
         }
     }
