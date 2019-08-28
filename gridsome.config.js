@@ -13,7 +13,10 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
-      slug: true
+      squeezeParagraphs: false,
+      plugin: [
+        'remark-attr'
+      ]
     }
   },
   plugins: [
