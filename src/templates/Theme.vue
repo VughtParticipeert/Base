@@ -2,7 +2,9 @@
     <LayoutDefault
       :title = "themeTitle"
     >
-
+		<div class="button-container">
+      <GoBack/>
+    </div>
 		<g-link v-for="post in this.filteredPost" :key="post.id" :to="post.path" class="g-link">
 			<Posts
 					:title="post.title"
