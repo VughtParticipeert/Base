@@ -5,7 +5,9 @@
             <p class="theme-container"><span>thema: </span><span class="text theme-text">{{theme}}</span></p>
             <p class="reason-container"><span>type: </span><span class="text reason-text">{{typePost}}</span></p>
         </section>
-        <h1 class="title">{{title}}</h1>
+        <g-link :to="linkPath" class="g-link">
+            <h1 class="title">{{title}}</h1>
+        </g-link>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
         <section v-html="content" class="content"></section>
     </article>
@@ -34,6 +36,9 @@ export default {
         },
         thread: {
             type: String,
+        },
+        linkPath: {
+            type:String
         },
         disableMetaData: {
             type: Boolean,
@@ -100,11 +105,21 @@ export default {
             }
         }
 
+        .g-link {
+            text-decoration: none;
+            color: black;
+
+            &:hover .title {
+                color: var(--secondary-color);
+            }
+        }
+
         .title {
             grid-area: "title";
             font-size: 2.2em;
             margin-top: 2rem;
             color: var(--primary-color);
+            transition: all 0.4s ease-out;
         }
 
         .date-container {

@@ -1,6 +1,6 @@
 <template>
     <LayoutDefault
-      :title = "threadTitle"
+      title = "Gerelateerde post"
     >
     <div class="button-container">
       <GoBack/>
