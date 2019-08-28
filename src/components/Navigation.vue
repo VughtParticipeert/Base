@@ -28,14 +28,8 @@
                     </button>
                       <transition name="slide-fade">
                     <ul v-if="subMenuActive" class="sub-menu-container theme-container">
-                        <li>
-                            <g-link to="/a" class="link"><span>- </span> Autoweg</g-link>
-                        </li>
-                        <li>
-                            <g-link to="/b" class="link"><span>- </span> Snelweg</g-link>
-                        </li>
-                        <li>
-                            <g-link to="/c" class="link"><span>- </span> Drukte</g-link>    
+                        <li v-for="theme in themes" :key="theme.node.id">
+                            <g-link :to="theme.node.path" class="link"><span>- </span>{{theme.node.theme}}</g-link>
                         </li>
                     </ul>
                       </transition>
@@ -68,6 +62,16 @@
             }
         }
     }
+
+    allTheme {
+        edges {
+            node {
+                id
+                theme: themeName
+                path
+            }
+        }
+    }
   }
 </static-query>
 
@@ -91,6 +95,14 @@
             menuItems() {
                 const menuItems = this.$static.allMenuItem.edges
                 return menuItems;
+            },
+            themes() {
+                const edges = this.$static.allTheme.edges
+                const themes = edges.map(node=> {
+                    return node
+                })
+
+                return themes
             }
         },
         methods: {
@@ -203,6 +215,7 @@
                         @media screen and (min-width: $break-small) {
                             & {
                                 font-size: 1em;
+                                justify-content: flex-start;
                             }
                         }
 

@@ -3,7 +3,7 @@
       :title = "threadTitle"
     >
     <div class="button-container">
-      <g-link class="back-button" to="/">terug</g-link>
+      <GoBack/>
     </div>
     <Posts
         v-for="post in this.$page.thread.posts" :key="post.id"
@@ -36,12 +36,14 @@
 <script>
     import LayoutDefault from "@/layouts/LayoutDefault.vue"
     import Posts from "@/components/Posts"
+    import GoBack from "@/components/GoBack"
 
     export default {
         name: "Thread",
         components: {
             LayoutDefault,
-            Posts
+            Posts,
+            GoBack
         },
         computed: {
           threadTitle() {
@@ -52,23 +54,5 @@
 </script>
 
 <style scoped lang="scss">
-  .button-container {
-
-    .back-button {
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: var(--small-radius);
-      background-color: var(--secondary-color);
-      display: inline-flex;
-      text-decoration: none;
-      color: white;
-      box-shadow: var(--material-shadow-one);
-      transition: all 0.4s ease-out;
-
-      &:hover {
-        box-shadow: var(--material-shadow-hover);
-      }
-    }
-  }
 </style>
 

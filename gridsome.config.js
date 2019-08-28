@@ -88,5 +88,13 @@ module.exports = {
         typeName: 'About',
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Theme/*.md',
+        typeName: 'Theme',
+        route: '/theme/:themeName'
+      }
+    },
   ]
 }

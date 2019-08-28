@@ -1,9 +1,9 @@
 <template>
     <article class="post-container">
         <section v-if="!disableMetaData" class="meta-data">            
-            <p class="thread-container"><span>groep: </span><span class="thread-text">{{thread}}</span></p>
-            <p class="theme-container"><span>thema: </span><span class="theme-text">{{theme}}</span></p>
-            <p class="reason-container"><span>type: </span><span class="reason-text">{{typePost}}</span></p>
+            <p class="thread-container"><span>groep: </span><span class="text thread-text">{{thread}}</span></p>
+            <p class="theme-container"><span>thema: </span><span class="text theme-text">{{theme}}</span></p>
+            <p class="reason-container"><span>type: </span><span class="text reason-text">{{typePost}}</span></p>
         </section>
         <h1 class="title">{{title}}</h1>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
@@ -30,7 +30,6 @@ export default {
             type: String,
         },
         content: {
-            type: String,
             required: true
         },
         thread: {
@@ -66,7 +65,7 @@ export default {
             background-color: rgb(252, 252, 252);
             color: rgb(114, 114, 114);
 
-            .reason-text, .thread-text, .theme-text {
+            .text {
                 padding: 0.4rem 0.7rem;
                 border-radius: 0.2rem;
                 font-weight: medium;
@@ -91,6 +90,12 @@ export default {
             .theme-container {
                 .theme-text {
                     color: var(--accent-color-two);
+                    text-transform: capitalize;
+
+                    &::first-letter {
+                        text-transform: capitalize;
+                        color: red;
+                    }
                 }
             }
         }

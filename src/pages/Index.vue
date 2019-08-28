@@ -6,6 +6,7 @@
       :date="post.date"
       :typePost="post.typePost"
       :content="post.content"
+      :theme="post.theme"
       :thread="post.threadTitle"
       class="posts"
       />
@@ -25,6 +26,7 @@
             typePost
             title
             date
+            theme
             typePost
             unanswered
             status
@@ -78,7 +80,6 @@
           return dateB - dateA
         })
 
-        console.log('allPosts: ', allPosts);
         return allPosts
       }
     },
@@ -88,9 +89,6 @@
         const id = `id_${randomNumber}`
         return id
       }
-    },
-    mounted() {
-      this.test = window
     }
   }
 </script>

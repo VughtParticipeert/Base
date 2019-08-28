@@ -50,9 +50,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  created() {
-    console.log(this.title)
   }
 }
 </script>
@@ -135,6 +132,10 @@ export default {
       .title {
         color: rgb(189, 189, 189);
         font-size: 4em;
+        
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
       .posts {
