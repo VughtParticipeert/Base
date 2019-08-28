@@ -3,6 +3,9 @@
         :title = "title"
         :disableSummary = disableSummary
     >
+        <div class="button-container">
+            <GoBack />
+        </div>
         <Posts
             v-for="post in this.$page.allAbout.edges" :key="post.node.id"
             :title="post.node.title"
@@ -29,12 +32,14 @@
 <script>
     import LayoutDefault from "@/layouts/LayoutDefault.vue"
     import Posts from "@/components/Posts"
+    import GoBack from "@/components/GoBack"
 
     export default {
         name: "About",
         components: {
             LayoutDefault,
-            Posts
+            Posts,
+            GoBack
         },
         data() {
             return {
