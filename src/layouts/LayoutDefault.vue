@@ -9,7 +9,7 @@
     <div class="newsletter">
       <Newsletter/>
     </div>
-    <div class="content">
+    <div class="content" id="main">
       <transition name="fade" appear>
         <main class="main-posts">
           <h1 class="title">{{this.title}}</h1>
@@ -146,11 +146,11 @@ export default {
   } 
 
 .fade-enter-active {
-  transition: all 0.7s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 .fade-enter {
-  transform: translateY(2rem);
+  transform: translateY(1rem);
   opacity: 0;
 }
 </style>

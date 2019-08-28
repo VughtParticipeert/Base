@@ -29,13 +29,13 @@
                       <transition name="slide-fade">
                     <ul v-if="subMenuActive" class="sub-menu-container theme-container">
                         <li v-for="theme in themes" :key="theme.node.id">
-                            <g-link :to="theme.node.path" class="link"><span>- </span>{{theme.node.theme}}</g-link>
+                            <g-link :to="theme.node.path+'#main'" class="link"><span>- </span>{{theme.node.theme}}</g-link>
                         </li>
                     </ul>
                       </transition>
                 </li>
                 <li class="menu-item">
-                    <g-link to="/about" class="link">Over ons</g-link>
+                    <g-link to="/about#main" class="link">Over ons</g-link>
                 </li>
                 <li class="menu-item">
                     <g-link to="/contact" class="link">Contact</g-link>

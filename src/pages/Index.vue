@@ -1,6 +1,6 @@
 <template>
   <LayoutDefault>
-    <g-link v-for="post in allPosts" :key="post.id" :to="post.path" class="g-link">
+    <g-link v-for="post in allPosts" :key="post.id" :to="`${post.path}#main`" class="g-link">
       <Posts
       :title="post.title"
       :date="post.date"
