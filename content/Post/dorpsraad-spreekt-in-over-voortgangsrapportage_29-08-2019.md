@@ -26,5 +26,8 @@ content: >-
 
 
   ![](/uploads/photo1.jpg)
+attachment:
+  title: Resume
+  attachment: /uploads/resume.pdf
 ---
 
