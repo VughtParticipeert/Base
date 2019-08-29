@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -20,6 +20,7 @@ collections:
     fields: # widget: defines editor UI and inputs and file field data types; for more detail go to : https://www.netlifycms.org/docs/widgets/
       - {name: "title", label: "Title", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image"}
+
   - label: "Jumbotron" #  label for the collection in the editor UI; defaults to the value of name
     name: "jumbotron" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/Jumbotron" # Location where the file will be saved
@@ -29,6 +30,7 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
+
   - label: "About" #  label for the collection in the editor UI; defaults to the value of name
     name: "about" # (required): unique identifier for the collection, used as the key when referenced in other contexts
     folder: "content/About" # Location where the file will be saved
@@ -38,6 +40,7 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+      
   - label: "Theme"
     name: "theme"
     folder: "content/Theme"
@@ -47,6 +50,37 @@ collections:
     identifier_field: themeName
     fields: 
       - {label: "Theme", name: "themeName", widget: "string"}
+
+  - label: "Group"
+    name: "group"
+    folder: "content/Group"
+    slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
+    create: true
+    description: Create a group.
+    fields: 
+      - {label: "Group title", name: "title", widget: "string"}
+
+  - label: "Post"
+    name: "post"
+    folder: "content/Post"
+    slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
+    create: true
+    description: Create a post.
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: datetime}
+      - {label: "Theme", name: "theme", widget: relation, collection: theme, searchFields: ["themeName"], valueField: "themeName"}
+      - {label: "Type of post", name: "typePost", widget: "select", options: [
+        {label: "Publication", value: "Publicatie"},
+        {label: "Question", value: "Vraag"},
+        {label: "Reminder", value: "Herinering"},
+        {label: "Answer", value: "Antwoord"}
+      ]}
+      - {label: "Group", name: "group", widget: "relation", collection: group, default: "none", searchFields: ["title"], valueField: "title"}
+      - {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default: "0", options: [{label: "Not applicable", value: 0},{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]}
+      - {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: false, widget: "boolean"}
+      - {label: "Content", name: "content", widget: "markdown"}
+
   - label: "Thread"
     name: "thread"
     folder: "content/Thread"
