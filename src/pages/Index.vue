@@ -6,6 +6,7 @@
       :typePost="post.node.typePost"
       :content="post.node.content"
       :theme="post.node.theme"
+      :group="post.node.group"
       :linkPath="`${post.node.path}#main`"
       class="posts"
       />
@@ -26,6 +27,7 @@
           theme
           typePost
           unanswered
+          group
           content
         }
       }
@@ -59,6 +61,13 @@
           const dateA = new Date(a.node.date)
           const dateB = new Date(b.node.date)
           return dateB - dateA
+        })
+
+        allPosts.map(post=> {
+          if(post.node.group === 'none') {
+            post.node.group = "..."
+          }
+          return post
         })
 
         return allPosts

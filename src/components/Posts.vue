@@ -1,7 +1,7 @@
 <template>
     <article class="post-container">
         <section v-if="!disableMetaData" class="meta-data">            
-            <p class="thread-container"><span>groep: </span><span class="text thread-text">{{thread}}</span></p>
+            <p class="group-container"><span>groep: </span><span class="text group-text">{{group}}</span></p>
             <p class="theme-container"><span>thema: </span><span class="text theme-text">{{theme}}</span></p>
             <p class="reason-container"><span>type: </span><span class="text reason-text">{{typePost}}</span></p>
         </section>
@@ -34,7 +34,7 @@ export default {
         content: {
             required: true
         },
-        thread: {
+        group: {
             type: String,
         },
         linkPath: {
@@ -84,10 +84,10 @@ export default {
                 }
             }
 
-            .thread-container {
+            .group-container {
                 margin-right: auto;
 
-                .thread-text {
+                .group-text {
                     color: var(--accent-color-three);
                 }
             }
