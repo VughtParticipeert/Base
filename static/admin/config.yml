@@ -55,7 +55,6 @@ collections:
     description: "A thread is a reference to the different posts that belong together."
     fields: 
       - {label: "Title of the thread", name: "title", widget: "string"}
-      - {label: "Content", name: "content", widget: "markdown"}
       - {label: "Post", name: "posts", widget: "list", fields: [
           {label: "Title", name: "title", widget: "string"},
           {label: "Date", name: "date", widget: datetime},
@@ -66,8 +65,8 @@ collections:
             {label: "Reminder", value: "Herinering"},
             {label: "Answer", value: "Antwoord"}
           ]},
-          {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select",  required: false, options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
+          {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default:[label: "Not applicable", value: 0] options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
           {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: true, widget: "boolean"},
-          {label: "Body", name: "body", widget: "markdown"}
+          {label: "Content", name: "content", widget: "markdown"}
         ]}
 
