@@ -55,7 +55,7 @@ collections:
     description: "A thread is a reference to the different posts that belong together."
     fields: 
       - {label: "Title of the thread", name: "title", widget: "string"}
-      - {label: "test", name: "test", widget: "markdown"}
+      - {label: "Content", name: "content", widget: "markdown"}
       - {label: "Post", name: "posts", widget: "list", fields: [
           {label: "Title", name: "title", widget: "string"},
           {label: "Date", name: "date", widget: datetime},
