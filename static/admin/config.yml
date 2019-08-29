@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -65,8 +65,8 @@ collections:
             {label: "Reminder", value: "Herinering"},
             {label: "Answer", value: "Antwoord"}
           ]},
-          {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default:[label: "Not applicable", value: 0] options: [{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
-          {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: true, widget: "boolean"},
+          {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default: "0", options: [{label: "Answer is complete", value: 0},{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]},
+          {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: false, widget: "boolean"},
           {label: "Content", name: "content", widget: "markdown"}
         ]}
 
