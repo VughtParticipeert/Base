@@ -33,7 +33,6 @@
                         theme
                         typePost
                         unanswered
-                        status
                         content: body
                     }
                 }

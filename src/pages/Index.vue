@@ -4,7 +4,7 @@
       :title="post.title"
       :date="post.date"
       :typePost="post.typePost"
-      :content="post.content"
+      :content="post.test"
       :theme="post.theme"
       :thread="post.threadTitle"
       :linkPath="`${post.path}#main`"
@@ -20,6 +20,7 @@
         node {
           id
           title
+          content:test
           path
           posts{
             typePost
@@ -28,7 +29,6 @@
             theme
             typePost
             unanswered
-            status
             content:body
           }
         }
@@ -68,6 +68,7 @@
             post.threadId = threadId //Add foreign key to the parent id
             post.threadTitle = threadTitle
             post.path = path
+            post.test = item.node.content
             allPosts.push(post)
           })
         })
