@@ -24,5 +24,6 @@ content: >-
 
 
   ![](/uploads/photo-placeholder-2.jpg)
+attachment: /uploads/resume.pdf
 ---
 
