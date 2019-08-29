@@ -26,7 +26,6 @@
           date
           theme
           typePost
-          unanswered
           group
           content
         }

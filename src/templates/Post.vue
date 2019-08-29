@@ -43,7 +43,6 @@
 					theme
 					date
 					typePost
-					unanswered
 					group
 					content
 			}
@@ -59,7 +58,6 @@
 						date
 						theme
 						typePost
-						unanswered
 						content
 						group
 				}

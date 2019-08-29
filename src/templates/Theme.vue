@@ -36,7 +36,6 @@
 						date
 						theme
 						typePost
-						unanswered
 						content
 						group
 					}

@@ -76,8 +76,8 @@ collections:
         {label: "Reminder", value: "Herinering"},
         {label: "Answer", value: "Antwoord"}
       ]}
-      - {label: "Group", name: "group", widget: "relation", collection: group, default: "none", searchFields: ["title"], valueField: "title"}
+      - {label: "Group - apply when you want to great a group of related Post.", name: "group", widget: "relation", collection: group, default: "none", searchFields: ["title"], valueField: "title"}
       - {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default: "0", options: [{label: "Not applicable", value: 0},{label: "Answer is complete", value: 1},{label: "Answer is incomplete", value: 2},{label: "Answer is not sufficient", value: 3}]}
-      - {label: "Unanswered - apply when the type of Post is a Question", name: "unanswered", default: false, widget: "boolean"}
+      - {label: "Answered - apply when the type of Post is a Question", name: "answered", default: false, widget: "boolean"}
       - {label: "Content", name: "content", widget: "markdown"}
 
