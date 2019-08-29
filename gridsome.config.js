@@ -33,14 +33,6 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/Thread/*.md',
-        typeName: 'Thread',
-        route: '/thread/:title/:id'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
         path: 'content/Theme/*.md',
         typeName: 'Theme',
         route: '/theme/:themeName/:id'
