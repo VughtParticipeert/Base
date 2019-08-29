@@ -10,8 +10,9 @@
         :title="this.$page.post.title"
         :date="this.$page.post.date"
         :typePost="this.$page.post.typePost"
-        :content="this.$page.post.content"
         :theme="this.$page.post.theme"
+        :group="this.$page.post.group"
+        :content="this.$page.post.content"
         class="active"
     />
 
@@ -25,8 +26,9 @@
 					:title="post.node.title"
 					:date="post.node.date"
 					:typePost="post.node.typePost"
-					:content="post.node.content"
 					:theme="post.node.theme"
+					:group="post.node.group"
+					:content="post.node.content"
 			/>
     </div>
 

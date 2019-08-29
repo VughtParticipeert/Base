@@ -73,7 +73,7 @@ export default {
             .text {
                 padding: 0.4rem 0.7rem;
                 border-radius: 0.2rem;
-                font-weight: medium;
+                font-weight: 500;
             }
 
             .reason-container {
@@ -95,8 +95,6 @@ export default {
             .theme-container {
                 .theme-text {
                     color: var(--accent-color-two);
-                    text-transform: capitalize;
-
                     &::first-letter {
                         text-transform: capitalize;
                         color: red;

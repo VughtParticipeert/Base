@@ -26,6 +26,8 @@
           date
           theme
           typePost
+          status
+          answered
           group
           content
         }
