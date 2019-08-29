@@ -8,6 +8,8 @@
       :theme="post.node.theme"
       :group="post.node.group"
       :linkPath="`${post.node.path}#main`"
+      :attachmentTitle="post.node.attachment.title"
+      :attachment="post.node.attachment.attachment"
       class="posts"
       />
   </LayoutDefault>
@@ -30,6 +32,10 @@
           answered
           group
           content
+          attachment {
+            title
+            attachment
+          }
         }
       }
     }

@@ -10,6 +10,14 @@
         </g-link>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
         <section v-html="content" class="content"></section>
+        <section class="attachment-container">
+            <span class="description">Bijlage</span>
+            <div>
+                <a :href="attachment" download class="attachment-link">
+                    <span class="attachment-title">{{attachmentTitle}}</span>
+                </a>
+            </div>
+        </section>
     </article>
 </template>
 
@@ -38,6 +46,12 @@ export default {
             type: String,
         },
         linkPath: {
+            type:String
+        },
+        attachmentTitle: {
+            type:String
+        },
+        attachment: {
             type:String
         },
         disableMetaData: {
@@ -188,6 +202,33 @@ export default {
                     &:hover:after {
                         transform: translateX(100%);
                     }
+                }
+            }
+        }
+
+        .attachment-container {
+            .description {
+                display: block;
+                margin: 3rem 0 0 0;
+                font-size: 1.4em;
+                color: var(--primary-color);
+                font-weight: 500;
+            }
+
+            .attachment-link {
+                display: inline-block;
+                margin-top: 1rem;
+                text-decoration: none;
+                padding: 0.7rem;
+                color: var(--secondary-color);
+                border: solid 2px var(--secondary-color);
+                border-radius: var(--small-radius);
+                transition: all 0.4s ease-out;
+
+                &:hover {
+                    background-color: var(--secondary-color);
+                    color: white;
+                    box-shadow: var(--material-shadow-hover);
                 }
             }
         }
