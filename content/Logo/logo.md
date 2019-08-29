@@ -1,5 +1,5 @@
 ---
 title: Logo
-logo: /uploads/place-holder-qualcomm-logo.svg
+logo: /uploads/photo-placeholder-2.jpg
 ---
 
