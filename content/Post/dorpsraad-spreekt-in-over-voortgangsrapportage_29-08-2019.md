@@ -3,7 +3,7 @@ title: Dorpsraad spreekt in over voortgangsrapportage
 date: 2019-08-29T13:47:48.875Z
 theme: Omlegging weg
 typePost: Vraag
-group: Test group
+group: Schiphol
 status: 1
 answered: false
 content: >-
@@ -28,6 +28,6 @@ content: >-
   ![](/uploads/photo1.jpg)
 attachment:
   title: Resume
-  attachment: /uploads/resume.pdf
+  attachment: /uploads/oreilly-modern-web-development-on-the-jamstack.pdf
 ---
 
