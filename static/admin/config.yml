@@ -80,4 +80,5 @@ collections:
       - {label: "Status - apply  when the type of Post is an Anwser", name: "status", widget: "select", default: 1, options: [{label: "Not applicable", value: 1},{label: "Answer is complete", value: 2},{label: "Answer is incomplete", value: 3},{label: "Answer is not sufficient", value: 4}]}
       - {label: "Answered - apply when the type of Post is a Question", name: "answered", default: false, widget: "boolean"}
       - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Attachment", name: "attachment", widget: "file"}
 
