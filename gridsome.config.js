@@ -19,13 +19,6 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/**/*.md',
-        typeName: 'Content'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
         path: 'content/Logo/*.md',
         typeName: 'Logo'
       }
@@ -50,7 +43,22 @@ module.exports = {
       options: {
         path: 'content/Theme/*.md',
         typeName: 'Theme',
-        route: '/theme/:themeName'
+        route: '/theme/:themeName/:id'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Group/*.md',
+        typeName: 'Group',
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/Post/*.md',
+        typeName: 'Post',
+        route: '/post/:title/:id'
       }
     },
     {

@@ -6,20 +6,24 @@
       <GoBack/>
     </div>
 		<Posts
-				v-for="post in this.filteredPost" :key="post.id"
-				:title="post.title"
-				:date="post.date"
-				:typePost="post.typePost"
-				:content="post.content"
-				:theme="post.theme"
-				:thread="post.threadTitle"
-				:linkPath="post.path"
+				v-for="post in this.filteredPost" :key="post.node.id"
+				:title="post.node.title"
+				:date="post.node.date"
+				:typePost="post.node.typePost"
+				:content="post.node.content"
+				:theme="post.node.theme"
+				:thread="post.node.threadTitle"
+				:linkPath="post.node.path"
 		/>
     </LayoutDefault>
 </template>
 
 <page-query>
-    query Theme {
+    query Theme ($id: String!){
+			theme(id: $id) {
+				themeName
+			}
+
         allThread {
             edges {
                 node {
@@ -37,6 +41,25 @@
                 }
             }
         }
+			
+			allPost {
+				edges {
+					node {
+						id
+						title
+						path
+						typePost
+						title
+						date
+						theme
+						typePost
+						unanswered
+						content
+						group
+					}
+				}
+			}
+
     }
 </page-query>
 
@@ -54,9 +77,7 @@
         },
         computed: {
           themeTitle() {
-            const theme = this.$route.params.themeName
-            const title = theme.replace("-", " ") //remove unnecessary characters
-            return title
+            return this.$page.theme.themeName
           },
 					allPosts() { //Get all post from all threads
 							const data = this.$page.allThread.edges
@@ -88,11 +109,11 @@
 					filteredPost() {
 						const filterArgument = this.themeTitle
 
-						let filteredPost = this.allPosts.filter(post => {
-							return post.theme.toLowerCase() === filterArgument.toLowerCase()
+						const allPosts = this.$page.allPost.edges
+						const filterPost = allPosts.filter(post => {
+							return post.node.theme === filterArgument
 						})
-
-						return filteredPost
+						return filterPost
 					}
 				},
 				methods: {

@@ -1,13 +1,12 @@
 <template>
   <LayoutDefault>
-      <Posts v-for="post in allPosts" :key="post.id"
-      :title="post.title"
-      :date="post.date"
-      :typePost="post.typePost"
-      :content="post.content"
-      :theme="post.theme"
-      :thread="post.threadTitle"
-      :linkPath="`${post.path}#main`"
+      <Posts v-for="post in allPosts" :key="post.node.id"
+      :title="post.node.title"
+      :date="post.node.date"
+      :typePost="post.node.typePost"
+      :content="post.node.content"
+      :theme="post.node.theme"
+      :linkPath="`${post.node.path}#main`"
       class="posts"
       />
   </LayoutDefault>
@@ -15,21 +14,19 @@
 
 <page-query>
   query Posts{
-    allThread{
+    allPost {
       edges {
         node {
           id
           title
           path
-          posts{
-            typePost
-            title
-            date
-            theme
-            typePost
-            unanswered
-            content
-          }
+          typePost
+          title
+          date
+          theme
+          typePost
+          unanswered
+          content
         }
       }
     }
@@ -53,28 +50,14 @@
       }
     },
     computed: {
-      allPosts() {//Get all post from all threads
-        const data = this.$page.allThread.edges
-        let allPosts = []
-
-        data.forEach(item => {
-          const threadId = item.node.id
-          const threadTitle = item.node.title
-          const path = item.node.path
-          const posts = item.node.posts
-          posts.forEach(post => {
-            post.id = this.createUniqueId() // add unique id to object
-            post.threadId = threadId //Add foreign key to the parent id
-            post.threadTitle = threadTitle
-            post.path = path
-            allPosts.push(post)
-          })
-        })
-
+      allPosts() {
+        const data = this.$page.allPost.edges
+        
         //Sort item by date - oldest first
+        let allPosts = data
         allPosts.sort((a,b)=> {
-          const dateA = new Date(a.date)
-          const dateB = new Date(b.date)
+          const dateA = new Date(a.node.date)
+          const dateB = new Date(b.node.date)
           return dateB - dateA
         })
 
