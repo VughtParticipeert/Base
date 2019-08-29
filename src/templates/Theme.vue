@@ -33,7 +33,6 @@
                         theme
                         typePost
                         unanswered
-                        content: body
                     }
                 }
             }

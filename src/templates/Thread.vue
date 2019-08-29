@@ -28,7 +28,6 @@
             date
             typePost
             unanswered
-            content:body
           }
         }
     }
