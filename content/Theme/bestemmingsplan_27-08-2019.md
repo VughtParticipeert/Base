@@ -1,4 +1,0 @@
----
-themeName: Bestemmingsplan
----
-
