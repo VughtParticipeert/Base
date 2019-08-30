@@ -86,8 +86,6 @@ collections:
           widget: "object",
           fields: [
             {label: Name, name: name, widget: string, default: ""},
-            {label: "Attachment", name: "attachment", default: "", widget: "file"},
-            {label: "Test", name: "test", default: "", widget: "markdown"},
-          ]
+            {label: "Attachment", name: "attachment", default: "", widget: "file"}          ]
       }]}
 

@@ -10,11 +10,11 @@
         </g-link>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
         <section v-html="content" class="content"></section>
-        <section class="attachment-container">
+        <section v-if="attachment.length > 0" class="attachment-container">
             <span class="description">Bijlage</span>
-            <div>
-                <a :href="attachment" download class="attachment-link">
-                    <span class="attachment-title">{{attachmentTitle}}</span>
+            <div class="attachment-link-container">
+                <a v-for="file in attachment" :href="file.file.attachment" :key="file.file.name" download class="attachment-link">
+                    <span class="attachment-title">{{file.file.name}}</span>
                 </a>
             </div>
         </section>
@@ -52,7 +52,8 @@ export default {
             type:String
         },
         attachment: {
-            type:String
+            type:Array,
+            default: ()=> []
         },
         disableMetaData: {
             type: Boolean,
@@ -207,6 +208,7 @@ export default {
         }
 
         .attachment-container {
+
             .description {
                 display: block;
                 margin: 3rem 0 0 0;
@@ -215,22 +217,28 @@ export default {
                 font-weight: 500;
             }
 
-            .attachment-link {
-                display: inline-block;
-                margin-top: 1rem;
-                text-decoration: none;
-                padding: 0.7rem;
-                color: var(--secondary-color);
-                border: solid 2px var(--secondary-color);
-                border-radius: var(--small-radius);
-                transition: all 0.4s ease-out;
+            .attachment-link-container {
+                display: flex;
 
-                &:hover {
-                    background-color: var(--secondary-color);
-                    color: white;
-                    box-shadow: var(--material-shadow-hover);
+                .attachment-link {
+                    display: block;
+                    margin-top: 1rem;
+                    margin-right: 1rem;
+                    text-decoration: none;
+                    padding: 0.7rem;
+                    color: var(--secondary-color);
+                    border: solid 2px var(--secondary-color);
+                    border-radius: var(--small-radius);
+                    transition: all 0.4s ease-out;
+
+                    &:hover {
+                        background-color: var(--secondary-color);
+                        color: white;
+                        box-shadow: var(--material-shadow-hover);
+                    }
                 }
             }
+
         }
     }
 </style>

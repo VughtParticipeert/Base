@@ -15,6 +15,7 @@
 				:thread="post.node.threadTitle"
 				:group="post.node.group"
 				:linkPath="post.node.path"
+				:attachment="post.node.attachment"
 		/>
     </LayoutDefault>
 </template>
@@ -38,6 +39,12 @@
 						typePost
 						content
 						group
+						attachment {
+							file {
+								name
+								attachment
+							}
+						}
 					}
 				}
 			}

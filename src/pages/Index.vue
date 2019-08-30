@@ -8,8 +8,7 @@
       :theme="post.node.theme"
       :group="post.node.group"
       :linkPath="`${post.node.path}#main`"
-      :attachmentTitle="post.node.attachment.title"
-      :attachment="post.node.attachment.attachment"
+      :attachment="post.node.attachment"
       class="posts"
       />
   </LayoutDefault>
@@ -33,12 +32,15 @@
           group
           content
           attachment {
-            title
-            attachment
+            file {
+              name
+              attachment
+            }
           }
         }
       }
     }
+
   }
 </page-query>
 
