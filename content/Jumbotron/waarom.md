@@ -1,5 +1,5 @@
 ---
 title: Waarom
-image: /uploads/photo1.jpg
+image: /uploads/photo-placeholder-2.jpg
 ---
 
