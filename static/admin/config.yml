@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -9,6 +9,10 @@ display_url: https://vught.netlify.com
 
 media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
 public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 collections:
   - label: "Logo" #  label for the collection in the editor UI; defaults to the value of name
@@ -63,7 +67,8 @@ collections:
   - label: "Post"
     name: "post"
     folder: "content/Post"
-    slug: "{{slug}}_{{day}}-{{month}}-{{year}}"
+    slug: "{{slug}}_{{day}}-{{month}}-{{year}}", encoding: "ascii"
+    
     create: true
     description: Create a post.
     fields: 
@@ -85,7 +90,7 @@ collections:
           name: "file",
           widget: "object",
           fields: [
-            {label: Name, name: name, widget: string, default: ""},
+            {label: Name, name: name, default: "", widget: string},
             {label: "Attachment", name: "attachment", default: "", widget: "file"}          ]
       }]}
 
