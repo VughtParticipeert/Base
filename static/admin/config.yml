@@ -10,6 +10,8 @@ display_url: https://vught.netlify.com
 media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
 public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
 
+publish_mode: editorial_workflow
+
 slug:
   encoding: "ascii"
   clean_accents: true
