@@ -1,7 +1,7 @@
 # Whole guidline can be found here: https://www.netlifycms.org/docs/configuration-options/
 
 backend:
-  name: git-gateway #When testing you can use test-repo else git-gateway
+  name: test-repo #When testing you can use test-repo else git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
 site_url: https://vught.netlify.com
@@ -88,8 +88,9 @@ collections:
           label: "File",
           name: "file",
           widget: "object",
+          required: false,
           fields: [
-            {label: Name, name: name, default: "", widget: string},
-            {label: "Attachment", name: "attachment", default: "", widget: "file"}          ]
+            {label: Name, name: name, widget: string},
+            {label: "Attachment", name: "attachment", widget: "file"}          ]
       }]}
 
