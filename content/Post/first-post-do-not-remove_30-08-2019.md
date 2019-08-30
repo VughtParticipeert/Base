@@ -2,7 +2,7 @@
 title: 'First post: Do not remove'
 date: 2019-08-30T12:53:22.267Z
 theme: Algemeen
-typePost: Vraag
+typePost: Publicatie
 group: Test group
 status: 2
 answered: true
