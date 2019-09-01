@@ -1,4 +1,8 @@
 ---
-title: Wat doet Vughtparticipeert
+title: Wat doet VughtParticipeert
 ---
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+VughtParticipeert is een vereniging waarbij de leden bepalen welke onderwerpen participatie vergen. Naast het ondersteunen van geselecteerde onderwerpen, verzorgt VughtParticipeert een open informatiestroom. 
+
+Naast het per onderwerpn bieden van informatie en actualiteiten, zal VughtParticipeert vragen stellen en zorgen dat er antwoorden komen. Dit doen wij door regelmatig vragen te stellen en te publiceren om vervolgens de antwoorden te ontvangen en te beoordelen. Bij onduidelijke of onvolledige antwoorden zullen wij navragen, net zolang totdat er duidelijlkheid is.
+
+Deze duidelijkheid is het fundament voor participatie. Alleen als wij weten en begrijpen waar het om gaat, wat de overwegingen zijn en welke keuzes kunnen worden gemaakt is de burger in staat invloed uit te oefenen op de ontwikkelingen.
