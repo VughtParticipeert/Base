@@ -8,6 +8,7 @@
       :theme="post.node.theme"
       :group="post.node.group"
       :linkPath="`${post.node.path}#main`"
+      :status="post.node.status"
       :attachment="post.node.attachment"
       class="posts"
       />
@@ -57,7 +58,12 @@
     data() {
       return {
         title: "",
-        test: ""
+        status: {
+          notApplicable: 1,
+          complete: 2,
+          inComplete: 3,
+          inSufficient: 4
+        }
       }
     },
     computed: {
@@ -72,6 +78,7 @@
           return dateB - dateA
         })
 
+        //Map group
         allPosts.map(post=> {
           if(post.node.group === 'none') {
             post.node.group = "..."
@@ -79,14 +86,43 @@
           return post
         })
 
-        return allPosts
+        const posts = this.checkStatus(allPosts)
+
+        return posts
       }
     },
     methods: {
-      createUniqueId() {
-        const randomNumber =  Math.floor(Math.random() * Math.floor(1000000000));
-        const id = `id_${randomNumber}`
-        return id
+      checkStatus(posts) {
+        posts.map(post=> {
+          switch(post.node.status) {
+            case this.status.notApplicable:
+              post.node.status = {
+                text: "Niet van toepassing",
+                value: "notApplicable"
+              }
+              break;
+            case this.status.complete:
+              post.node.status = {
+                text: "Antwoord is volledig",
+                value: "complete"
+              }
+              break;
+            case this.status.inComplete:
+              post.node.status = {
+                text: "Antwoord is onvolledig",
+                value: "inComplete"
+              }
+              break;
+            case this.status.inSufficient:
+              post.node.status = {
+                text: "Antwoord volstaat niet",
+                value: "inSufficient"
+              }
+              break;
+          }
+        })
+
+        return posts
       }
     }
   }

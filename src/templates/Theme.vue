@@ -10,11 +10,12 @@
 				:title="post.node.title"
 				:date="post.node.date"
 				:typePost="post.node.typePost"
-				:content="post.node.content"
 				:theme="post.node.theme"
 				:thread="post.node.threadTitle"
 				:group="post.node.group"
 				:linkPath="post.node.path"
+				:status="post.node.status"
+				:content="post.node.content"
 				:attachment="post.node.attachment"
 		/>
     </LayoutDefault>
@@ -37,8 +38,9 @@
 						date
 						theme
 						typePost
-						content
 						group
+						status
+						content
 						attachment {
 							file {
 								name
@@ -64,6 +66,17 @@
 					Posts,
 					GoBack
 			},
+			data() {
+				return {
+					title: "",
+					status: {
+						notApplicable: 1,
+						complete: 2,
+						inComplete: 3,
+						inSufficient: 4
+					}
+				}
+			},			
 			computed: {
 				themeTitle() {
 					return this.$page.theme.themeName
@@ -88,10 +101,49 @@
 						}
 						return post
 					})
+
+					filterPost.map(post=> {
+						
+						post.node.status = this.checkStatus(post)
+						return post
+					})
+					
 					
 					return filterPost
 				}
 			},
+			methods: {
+				checkStatus(post) {
+					
+						switch (post.node.status) {
+							case this.status.notApplicable:
+								post.node.status = {
+									text: "Niet van toepassing",
+									value: "notApplicable"
+								}
+								break;
+							case this.status.complete:
+								post.node.status = {
+									text: "Antwoord is volledig",
+									value: "complete"
+								}
+								break;
+							case this.status.inComplete:
+								post.node.status = {
+									text: "Antwoord is onvolledig",
+									value: "inComplete"
+								}
+								break;
+							case this.status.inSufficient:
+								post.node.status = {
+									text: "Antwoord volstaat niet",
+									value: "inSufficient"
+								}
+								break;
+						}
+					return post.node.status
+				}
+			}
     }
 </script>
 

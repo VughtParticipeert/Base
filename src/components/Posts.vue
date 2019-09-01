@@ -9,6 +9,7 @@
             <h1 class="title">{{title}}</h1>
         </g-link>
         <p v-if="!disableMetaData" class="date-container"><span>Gepost op: </span><span>{{date | moment("DD-MM-YY")}}</span></p>
+				<p v-if="!disableMetaData" :class="status.value" class="status-container"><span class="text status-text" :class="status.value">{{status.text}}</span></p>
         <section v-html="content" class="content"></section>
         <section v-if="attachment.length > 0" class="attachment-container">
             <span class="description">Bijlage</span>
@@ -23,44 +24,60 @@
 
 
 <script>
-export default {
-    name: "Posts",
-    props: {
-        title: {
-            type: String,
-            required: true
-        },
-        date: {
-            type: String,
-        },
-        theme: {
-            type: String
-        },
-        typePost: {
-            type: String,
-        },
-        content: {
-            required: true
-        },
-        group: {
-            type: String,
-        },
-        linkPath: {
-            type:String
-        },
-        attachmentTitle: {
-            type:String
-        },
-        attachment: {
-            type:Array,
-            default: ()=> []
-        },
-        disableMetaData: {
-            type: Boolean,
-            default: false
-        }
-    }
-}
+	export default {
+		name: "Posts",
+		props: {
+				title: {
+						type: String,
+						required: true
+				},
+				date: {
+						type: String,
+				},
+				theme: {
+						type: String
+				},
+				typePost: {
+						type: String,
+				},
+				content: {
+						required: true
+				},
+				group: {
+						type: String,
+				},
+				linkPath: {
+						type:String
+				},
+				status: {
+						type: Object,
+						default: ()=> {
+							return {
+								text: "",
+								value: 0
+							}
+						}
+				},
+				attachment: {
+						type:Array,
+						default: ()=> []
+				},
+				disableMetaData: {
+						type: Boolean,
+						default: false
+				}
+		},
+		data() {
+			return {
+				statusValue: {
+					notApplicable: 1,
+					complete: 2,
+					inComplete: 3,
+					inSufficient: 4
+				}
+			}
+		}
+	}
 </script>
 
 <style scoped lang="scss">
@@ -75,6 +92,7 @@ export default {
             "metaData"
             "title"
             "date"
+            "status"
             "content"
         ;
 
@@ -147,10 +165,38 @@ export default {
             }
         }
 
+        .status-container {
+            grid-area: status;
+						margin-top: 0.7rem;
+						
+						&.notApplicable {
+							display: none;
+						}
+
+            .status-text {
+                padding: 0.4rem 0.7rem;
+                color: white;
+                background-color: rgb(224, 224, 224);
+                border-radius: var(--small-radius);
+            }
+
+            .complete {   
+                background-color: var(--status-complete);
+            }
+
+            .inComplete {
+                background-color: var(--status-inComplete);
+            }
+
+            .inSufficient {
+                background-color: var(--status-inSufficient);
+            }
+        }
+
         .content {
             grid-area: content;
-            margin-top: 2rem;
             line-height: 1.4;
+            margin-top: 0.7rem;
 
             &::v-deep {
                 p {
