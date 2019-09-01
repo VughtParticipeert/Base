@@ -1,5 +1,5 @@
 ---
 title: Logo
-logo: /uploads/photo-placeholder-2.jpg
+logo: /uploads/dia1.png
 ---
 
