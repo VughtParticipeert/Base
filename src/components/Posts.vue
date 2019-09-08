@@ -1,5 +1,7 @@
 <template>
     <article class="post-container">
+        <h1>Test commit</h1>
+
         <section v-if="!disableMetaData" class="meta-data">            
             <p class="group-container"><span>groep: </span><span class="text group-text">{{group}}</span></p>
             <p class="theme-container"><span>thema: </span><span class="text theme-text">{{theme}}</span></p>
